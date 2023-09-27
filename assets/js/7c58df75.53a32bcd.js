@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[483],{2935:t=>{t.exports=JSON.parse('{"title":"Quickstart","slug":"/category/quickstart","permalink":"/docs/category/quickstart","navigation":{"previous":{"title":"Introduction","permalink":"/docs/introduction"},"next":{"title":"Guide to Start Fabriq","permalink":"/docs/quickstart/start_fabriq"}}}')}}]);
