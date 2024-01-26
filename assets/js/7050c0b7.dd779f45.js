@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[436],{1446:e=>{e.exports=JSON.parse('{"title":"Destinations","slug":"/category/destinations","permalink":"/docs/category/destinations","navigation":{"previous":{"title":"Overview Page","permalink":"/docs/Analytics/overview"},"next":{"title":"Bigquery","permalink":"/docs/destinations/bigquery"}}}')}}]);
