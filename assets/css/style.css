@@ -4440,6 +4440,10 @@ textarea.form-control-lg {
   align-items: stretch;
   width: 100%;
 }
+.input-group.center {
+  align-items: center !important;
+  justify-content: center !important;
+}
 .input-group > .form-control,
 .input-group > .form-select,
 .input-group > .form-floating {
@@ -6282,6 +6286,9 @@ textarea.form-control-lg {
   text-decoration: none;
   white-space: nowrap;
 }
+.navbar-brand.img-wrap {
+  display: flex;
+}
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--gen-navbar-brand-hover-color);
 }
@@ -6597,6 +6604,9 @@ textarea.form-control-lg {
     padding: 0;
     overflow-y: visible;
   }
+}
+.title-hed {
+  margin-bottom: 0 !important;
 }
 .navbar-expand {
   flex-wrap: nowrap;
@@ -34937,6 +34947,10 @@ a {
 }
 .typed-animation {
   white-space: nowrap;
+
+  @media (max-width: 767px) {
+      white-space: normal;
+  }
 }
 
 [data-aos=fade-up-sm] {
