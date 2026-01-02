@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_PIa24j6n4B2noaTSB5C6TEcTHjgSBvZn58NI9AMI095',{api_host:'https://app.posthog.com'})
+    </script>
+
+    <!-- Title -->
+    <title>Agentic FinOps | Fabriq - AI-Powered Bookkeeping</title>
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Get your books on autopilot with Agentic AI. Smart agents that understand your business patterns, resolve discrepancies, and optimize payment timing." />
+    <meta name="keywords" content="agentic AI, bookkeeping, finops, automated accounting, AI bookkeeper, reconciliation, order to cash" />
+    <meta name="author" content="Fabriq" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Agentic FinOps | Fabriq - AI-Powered Bookkeeping" />
+    <meta property="og:description" content="Get your books on autopilot with AI-powered categorization and reconciliation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fabriqdata.com/books" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/fabriq_logo.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    
+    <style>
+      /* Books Page Specific Styles */
+      .books-hero {
+        padding: 180px 0 100px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .books-hero::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 900px;
+        height: 900px;
+        background: radial-gradient(circle, rgba(0, 212, 170, 0.12) 0%, transparent 60%);
+        pointer-events: none;
+      }
+      
+      .books-hero-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .books-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.15;
+      }
+      
+      .books-hero .hero-description {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        max-width: 650px;
+        margin: 0 auto 2.5rem;
+      }
+      
+      /* Feature Cards Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .feature-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: var(--transition-medium);
+      }
+      
+      .feature-card:hover {
+        border-color: rgba(0, 212, 170, 0.3);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-glow);
+      }
+      
+      .feature-card .icon-wrapper {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(0, 212, 170, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+      }
+      
+      .feature-card .icon-wrapper svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--color-accent-primary);
+      }
+      
+      .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        font-family: var(--font-body);
+        font-weight: 600;
+      }
+      
+      .feature-card p {
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+      
+      /* Order to Cash Section */
+      .otc-section {
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+      }
+      
+      .otc-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      
+      .otc-text h2 {
+        margin-bottom: 1.5rem;
+      }
+      
+      .otc-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+      
+      .otc-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+      
+      .otc-features li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 0.75rem;
+        color: var(--color-text-secondary);
+      }
+      
+      .otc-features li svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--color-accent-primary);
+        flex-shrink: 0;
+      }
+      
+      .otc-visual {
+        position: relative;
+      }
+      
+      .otc-visual .visual-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        position: relative;
+      }
+      
+      .otc-visual .visual-card::before {
+        content: '';
+        position: absolute;
+        inset: -15px;
+        background: var(--gradient-glow);
+        filter: blur(50px);
+        opacity: 0.3;
+        z-index: -1;
+        border-radius: 24px;
+      }
+      
+      .flow-diagram {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .flow-step {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: rgba(0, 212, 170, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 212, 170, 0.1);
+      }
+      
+      .flow-step .step-number {
+        width: 32px;
+        height: 32px;
+        background: var(--gradient-primary);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: var(--color-bg-primary);
+        flex-shrink: 0;
+      }
+      
+      .flow-step .step-text {
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+      }
+      
+      /* Pricing Section */
+      .pricing-section {
+        position: relative;
+      }
+      
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      
+      .pricing-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: var(--transition-medium);
+        position: relative;
+      }
+      
+      .pricing-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 212, 170, 0.3);
+      }
+      
+      .pricing-card.featured {
+        border-color: var(--color-accent-primary);
+        background: rgba(0, 212, 170, 0.05);
+      }
+      
+      .pricing-card.featured::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        background: var(--gradient-primary);
+        border-radius: 24px;
+        z-index: -1;
+        opacity: 0.2;
+      }
+      
+      .pricing-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gradient-primary);
+        color: var(--color-bg-primary);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      
+      .pricing-card h3 {
+        font-family: var(--font-body);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .pricing-card .price {
+        font-family: var(--font-heading);
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .pricing-card .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        -webkit-text-fill-color: var(--color-text-muted);
+      }
+      
+      .pricing-card .tagline {
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .pricing-features {
+        list-style: none;
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+      
+      .pricing-features li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.5rem 0;
+        color: var(--color-text-secondary);
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--glass-border);
+      }
+      
+      .pricing-features li:last-child {
+        border-bottom: none;
+      }
+      
+      .pricing-features li svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--color-accent-primary);
+        flex-shrink: 0;
+      }
+      
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+        }
+        
+        .otc-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .books-hero {
+          padding: 140px 0 60px;
+        }
+        
+        .books-hero h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="grid-pattern"></div>
+    
+    <!-- Node Connections Canvas -->
+    <canvas id="nodeCanvas" class="node-connections"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar-custom" id="navbar">
+      <div class="container">
+        <a href="/" class="navbar-brand">
+          <span class="logo-text">Fabriq</span>
+          <img src="assets/images/fabriq_logo.png" alt="Fabriq" class="logo-img" />
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="#">Solutions</a>
+            <div class="dropdown-menu">
+              <a href="/books.html">Agentic FinOps</a>
+            </div>
+          </li>
+          <li><a href="/#features">Services</a></li>
+          <li><a href="/#about">About</a></li>
+          <li>
+            <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-primary">
+              Start Free
+            </a>
+          </li>
+        </ul>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="books-hero">
+        <div class="container">
+          <div class="books-hero-content" data-aos="fade-up-sm">
+            <div class="hero-badge">
+              <span class="dot"></span>
+              <span>Agentic FinOps</span>
+            </div>
+            
+            <h1>
+              Get your books on autopilot<br />
+              <span class="gradient-text">powered by Agentic AI</span>
+            </h1>
+            
+            <p class="hero-description">
+              Smart agents that understand your business patterns, resolve discrepancies, 
+              and optimize payment timing. No more manual reconciliation.
+            </p>
+            
+            <div class="hero-buttons">
+              <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-primary btn-lg">
+                Start Free
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-glass btn-lg">
+                Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">Features</span>
+            <h2>Automate your business life</h2>
+            <p>Fabriq takes action on your behalf so you can focus on what matters most.</p>
+          </div>
+
+          <div class="features-grid" data-aos="fade-up-sm" data-aos-delay="100">
+            <div class="feature-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3>Real-time categorization</h3>
+              <p>Get your business transactions categorized automatically and reviewed by experts for accuracy.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3>No deduction missed</h3>
+              <p>Get the easy-to-miss deductions like your workspace, vehicle, and travel handled automatically.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3>Smart reconciliation</h3>
+              <p>AI-powered matching of invoices, payments, and bank transactions with automatic discrepancy resolution.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                </svg>
+              </div>
+              <h3>Real-time insights</h3>
+              <p>Live dashboards showing cash flow, outstanding invoices, and financial health at a glance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order to Cash Section -->
+      <section class="otc-section" id="order-to-cash">
+        <div class="container">
+          <div class="otc-content">
+            <div class="otc-text" data-aos="fade-up-sm">
+              <span class="section-label" style="justify-content: flex-start;">Automation</span>
+              <h2>Order to Cash Automation</h2>
+              <p>Complete order-to-cash automation with AI-powered order management, invoicing, payment tracking, and delivery management.</p>
+              
+              <ul class="otc-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Automated invoice generation from orders</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Smart payment reminders and follow-ups</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Real-time delivery and fulfillment tracking</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Automatic bank reconciliation</span>
+                </li>
+              </ul>
+              
+              <a href="https://books.fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Learn more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+            
+            <div class="otc-visual" data-aos="fade-up-sm" data-aos-delay="150">
+              <div class="visual-card">
+                <div class="flow-diagram">
+                  <div class="flow-step">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Order received & validated</span>
+                  </div>
+                  <div class="flow-step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Invoice auto-generated & sent</span>
+                  </div>
+                  <div class="flow-step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Payment tracked & reconciled</span>
+                  </div>
+                  <div class="flow-step">
+                    <span class="step-number">4</span>
+                    <span class="step-text">Delivery confirmed & books updated</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section class="pricing-section" id="pricing">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">Pricing</span>
+            <h2>Simple, transparent pricing</h2>
+            <p>Start free and scale as your business grows. No hidden fees, no surprises.</p>
+          </div>
+
+          <div class="pricing-grid" data-aos="fade-up-sm" data-aos-delay="100">
+            <!-- Free Plan -->
+            <div class="pricing-card">
+              <h3>Free</h3>
+              <div class="price">$0</div>
+              <p class="tagline">Perfect for getting started</p>
+              <ul class="pricing-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Up to 50 transactions/month</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Basic categorization</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>1 bank connection</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Email support</span>
+                </li>
+              </ul>
+              <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-outline" style="width: 100%;">Get Started</a>
+            </div>
+            
+            <!-- Professional Plan -->
+            <div class="pricing-card featured">
+              <span class="pricing-badge">Most Popular</span>
+              <h3>Professional</h3>
+              <div class="price">$29<span>/month</span></div>
+              <p class="tagline">For growing businesses</p>
+              <ul class="pricing-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Unlimited transactions</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>AI-powered categorization</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>5 bank connections</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Order-to-cash automation</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Priority support</span>
+                </li>
+              </ul>
+              <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-primary" style="width: 100%;">Start Free Trial</a>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+              <h3>Enterprise</h3>
+              <div class="price">Custom</div>
+              <p class="tagline">For large organizations</p>
+              <ul class="pricing-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Everything in Professional</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Unlimited bank connections</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Custom integrations</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Dedicated account manager</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>SLA guarantee</span>
+                </li>
+              </ul>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com&su=Enterprise Inquiry - Agentic FinOps" target="_blank" class="btn btn-outline" style="width: 100%;">Contact Sales</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card" data-aos="fade-up-sm">
+            <h2>Put your books on autopilot</h2>
+            <p>Join thousands of business owners who have transformed their financial management with Fabriq.</p>
+            <div class="hero-buttons" style="margin-top: 2rem;">
+              <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-primary btn-lg">
+                Start Free
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-glass btn-lg">
+                Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="logo-text">Fabriq</span>
+            <p>AI-powered bookkeeping and financial management for modern businesses. Get your books on autopilot.</p>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#order-to-cash">Order to Cash</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/">Fabriq Data</a></li>
+              <li><a href="/#about">About Team</a></li>
+              <li><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-cta">
+            <h4>Ready to automate your books?</h4>
+            <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">
+              Start Free
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>© 2024 Fabriq Labs, Inc. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      menuToggle?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+
+      // Navbar Scroll Effect
+      const navbar = document.getElementById('navbar');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Node Connection Animation
+      const canvas = document.getElementById('nodeCanvas');
+      const ctx = canvas.getContext('2d');
+      let nodes = [];
+      let animationFrame;
+
+      function initCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        nodes = [];
+        const nodeCount = Math.floor((canvas.width * canvas.height) / 25000);
+        
+        for (let i = 0; i < nodeCount; i++) {
+          nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 2 + 1
+          });
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        nodes.forEach((node, i) => {
+          node.x += node.vx;
+          node.y += node.vy;
+          
+          if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+          if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+          
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 212, 170, 0.4)';
+          ctx.fill();
+          
+          nodes.forEach((otherNode, j) => {
+            if (i !== j) {
+              const dx = node.x - otherNode.x;
+              const dy = node.y - otherNode.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              
+              if (distance < 150) {
+                ctx.beginPath();
+                ctx.moveTo(node.x, node.y);
+                ctx.lineTo(otherNode.x, otherNode.y);
+                ctx.strokeStyle = `rgba(0, 212, 170, ${0.1 * (1 - distance / 150)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            }
+          });
+        });
+        
+        animationFrame = requestAnimationFrame(animate);
+      }
+
+      initCanvas();
+      animate();
+
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(animationFrame);
+        initCanvas();
+        animate();
+      });
+
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    </script>
+  </body>
+</html>
+

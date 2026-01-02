@@ -12,1133 +12,706 @@
     </script>
 
     <!-- Title -->
-    <title>Fabriq</title>
+    <title>Fabriq | Data & AI Transformation Partners</title>
 
     <!-- SEO meta tags -->
-    <meta
-      name="description"
-      content="Fabriq"
-    />
+    <meta name="description" content="Fabriq helps businesses transform their data infrastructure and become AI-ready. Expert consulting, engineering, and managed services for the modern data stack." />
+    <meta name="keywords" content="data engineering, AI consulting, data transformation, modern data stack, data platform, data consultancy" />
+    <meta name="author" content="Fabriq" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fabriq | Data & AI Transformation Partners" />
+    <meta property="og:description" content="Transform your data infrastructure and become AI-ready with Fabriq's expert consulting and engineering services." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fabriqdata.com" />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/fabriq_logo.png" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/fabriq_logo.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/plugins.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
 
   <body>
-    <div class="wrapper d-flex flex-column justify-between">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg fixed-top bg-hover-scroll on-over">
-        <div class="container">
-          <!-- Logo -->
-          <a class="navbar-brand img-wrap" href="/">
-            <h3 class="title-hed">Fabriq</h3>
-            <img
-            src="assets/images/fabriq_logo.png"
-            alt=""
-            className="company_logo"
-            width="50"
-          />
-          </a>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="grid-pattern"></div>
+    
+    <!-- Node Connections Canvas -->
+    <canvas id="nodeCanvas" class="node-connections"></canvas>
 
-          <!-- Navbar toggler button -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarContent"
-            aria-controls="navbarContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <div class="navbar-toggler-icon">
-              <span></span>
-              <span></span>
-              <span></span>
+    <!-- Navigation -->
+    <nav class="navbar-custom" id="navbar">
+      <div class="container">
+        <a href="/" class="navbar-brand">
+          <span class="logo-text">Fabriq</span>
+          <img src="assets/images/fabriq_logo.png" alt="Fabriq" class="logo-img" />
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="#">Solutions</a>
+            <div class="dropdown-menu">
+              <a href="/books.html">Agentic FinOps</a>
             </div>
-          </button>
+          </li>
+          <li><a href="#features">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="btn btn-primary">
+              Get Started
+            </a>
+          </li>
+        </ul>
 
-          <!-- Navbar content -->
-          <div class="collapse navbar-collapse" id="navbarContent">
-            <div
-              class="navbar-content-inner ms-lg-auto d-flex flex-column flex-lg-row align-lg-center gap-4 gap-lg-10 p-2 p-lg-0"
-            >
-              <ul class="navbar-nav gap-lg-2 gap-xl-5">
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+          <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+            </svg>
+          </div>
+          <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+            </svg>
+          </div>
+          <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+          </div>
+          <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="hero-content" data-aos="fade-up-sm">
+            <div class="hero-badge">
+              <span class="dot"></span>
+              <span>Data & AI Transformation Experts</span>
+            </div>
+            
+            <h1>
+              We Build the Foundation for<br />
+              <span class="typed-text typed-animation" data-strings='["AI-Ready Infrastructure", "Intelligent Data Systems", "Data-Driven Decisions", "Scalable Analytics"]'>AI-Ready Infrastructure</span>
+            </h1>
+            
+            <p class="hero-description">
+              Expert data consultancy focused on technology leadership, 
+              process transformation, and engineering services for modern businesses.
+            </p>
+            
+            <div class="hero-buttons">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="btn btn-primary btn-lg">
+                Start Your Journey
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="#features" class="btn btn-glass btn-lg">
+                Explore Services
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-image" data-aos="fade-up-sm" data-aos-delay="200">
+            <img src="assets/images/main_theme.jpg" alt="Data Analytics Dashboard" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="stats-section">
+        <div class="container">
+          <div class="stats-grid" data-aos="fade-up-sm">
+            <div class="stat-item">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Integrations Supported</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10x</div>
+              <div class="stat-label">Faster Insights</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Support Available</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="feature-section" id="features">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">Our Services</span>
+            <h2>Transform Your Data Infrastructure</h2>
+            <p>From strategy to implementation, we help businesses build modern data platforms that drive growth and enable AI adoption.</p>
+          </div>
+
+          <!-- Feature 1 -->
+          <div class="feature-row" id="feature-1">
+            <div class="feature-content" data-aos="fade-up-sm">
+              <h2>Is it the right time for a modern data platform?</h2>
+              <p>Technology scaling and data-driven processes drive long-term business success. Are these constraints limiting your growth?</p>
+              <ul class="feature-list">
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Struggling to manage acquisition of new users, their lifetime value and cost?</span>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Solutions
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
-                    <li><a class="dropdown-item" href="https://books.fabriqdata.com" target="_blank">Agentic FinOps</a></li>
-                  </ul>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Business users can't find data resources or access insights easily?</span>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#features">Know more</a>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Bottlenecks in real-time reporting slowing down decisions?</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Data systems need frequent updates and maintenance?</span>
                 </li>
               </ul>
-              <div class="">
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                  target="_blank"
-                  class="btn btn-outline-primary"
-                  >Get started</a
-                >
-              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Talk to us about your project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+            <div class="feature-image" data-aos="fade-up-sm" data-aos-delay="150">
+              <img src="assets/images/illustrations/feature-illustration-1-blue.svg" alt="Data Platform Assessment" />
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-row reverse" id="feature-2">
+            <div class="feature-content" data-aos="fade-up-sm">
+              <h2>The Transformation Journey</h2>
+              <p>We help medium-sized businesses transform their technology infrastructure to adapt for the data and AI world.</p>
+              <ul class="feature-list">
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Single source of truth for all your data</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Modern data stack with connected data pipelines</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Insights & access with semantic core and APIs</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>ML & AI readiness with headless intelligence</span>
+                </li>
+              </ul>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Talk to us about your project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+            <div class="feature-image" data-aos="fade-up-sm" data-aos-delay="150">
+              <img src="assets/images/fabriq/Data engineering and consulting v2.png" alt="Data Transformation Journey" />
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-row" id="feature-3">
+            <div class="feature-content" data-aos="fade-up-sm">
+              <h2>Consulting & Strategic Services</h2>
+              <p>Experience the power of data through interactive insights. Transform complex analytics into actionable strategies.</p>
+              <ul class="feature-list">
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Use case prioritization with non-technical stakeholders</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Technical deep dives with engineering teams</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Infrastructure, analytics & reporting review</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Data roadmap with implementation plan</span>
+                </li>
+              </ul>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Talk to us about your project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+            <div class="feature-image" data-aos="fade-up-sm" data-aos-delay="150">
+              <img src="assets/images/fabriq/engagement model.png" alt="Consulting Services" />
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-row reverse" id="feature-4">
+            <div class="feature-content" data-aos="fade-up-sm">
+              <h2>Technology & Engineering Services</h2>
+              <p>We dive into use case details to determine the right technology tools and deliver robust engineering solutions.</p>
+              <ul class="feature-list">
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Core data model and technology architecture</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Modern tools selection and implementation</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Data infrastructure setup and integration</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>SQL querying and APIs for downstream analytics</span>
+                </li>
+              </ul>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Talk to us about your project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+            <div class="feature-image" data-aos="fade-up-sm" data-aos-delay="150">
+              <img src="assets/images/illustrations/feature-illustration-1-blue.svg" alt="Engineering Services" />
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-row" id="feature-5">
+            <div class="feature-content" data-aos="fade-up-sm">
+              <h2>Data as a Managed Service</h2>
+              <p>Transitioning from building to managing? We've got you covered. Run it as a service until your internal capabilities ramp up.</p>
+              <ul class="feature-list">
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Assist internal teams to maintain and improve</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Continuously updated roadmap and strategy</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>New capabilities implementation</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Training and knowledge transfer</span>
+                </li>
+              </ul>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Talk to us about your project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+            <div class="feature-image" data-aos="fade-up-sm" data-aos-delay="150">
+              <img src="assets/images/illustrations/feature-illustration-3-blue.svg" alt="Managed Services" />
             </div>
           </div>
         </div>
-      </nav>
+      </section>
 
-      <main class="flex-grow-1">
-        <!-- Hero -->
-        <section
-          class="hero-section style-1 overflow-hidden gradient-bg pt-30 pb-15 pb-lg-20 pt-xl-36"
-        >
-          <div class="container">
-            <div class="row justify-center">
-              <div class="col-lg-9">
-                <div class="text-center">
-                  <div class="position-relative z-1">
-                    
-                    <h1
-                      class="text-dark mb-8"
-                      data-aos="fade-up-sm"
-                      data-aos-delay="150"
-                    >
-                      We assist in data transformation and AI readiness <br />
-                      
-                    </h1>
-                    <h4>
-                      <span
-                      class="fw-bold text-gradient-1 typed-animation"
-                      data-strings='["Centralised and connected data", "Self-serve access and semantic framework", "Data activation, ML and AI readiness"]'
-                      >Single source of truth</span
-                    >
-                    </h4>                   
-                    <p class="text-primary sub-tile" style="font-size: 26px !important;" data-aos="fade-up-sm">
-                      Data consultancy focused on technology leadership, 
-                      <br /> process transformation and engineering services.
-                    </p>
-                    <a
-                      href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                      target="_blank"
-                      class="btn btn-lg btn-gradient-1"
-                      data-aos="fade-up-sm"
-                      data-aos-delay="200"
-                      >To start journey</a
-                    >
-                  </div>
-                  <div data-aos="fade-up-sm" data-aos-delay="300">
-                    <div class="image-with-shape">
-                      <img
-                        src="assets/images/shapes/blurry-shape-1.svg"
-                        alt=""
-                        class="shape animate-scale"
-                      />
-                      <div
-                        class="mt-12 rounded-5 border border-primary shadow-lg overflow-hidden position-relative z-1"
-                      >
-                       <img
-                        class="img-fluid d-iniline-block"
-                        src="assets/images/main_theme.jpg"
-                        alt=""
-                      />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Features -->
-        <section class="py-10 py-lg-15 @extraClassList" id="features">
-          <div class="container">
-            <div class="row g-6 gx-lg-14 gx-xl-20 align-center" id="feature-1">
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="150">
-                <div class="content">
-                  <h1 class="mb-8">Is it the right time for a modern data platform?</h1>
-                  <p class="mb-6">
-                    Technology scaling, and data driven processes and decisions drive long term business success and competitiveness. Are some constraints below limiting your growth?  
-                  </p>
-                  <ul class="list-unstyled list-check mb-8">
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Is it getting difficult to manage acquisition of new users their lifetime value and cost? 
-                      </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Do business users find what data resources are available and have easy access to insights from data? 
-                      </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Are there bottlenecks in real-time reporting? </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>How frequently do data systems and infrastructure need an update? </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>How well do you understand your customers </span>
-                    </li>
-                  </ul>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                    target="_blank"
-                    class="arrow-link arrow-link-primary text-primary gap-3"
-                  >
-                    <span>Talk to us about your project</span>
-                    <svg
-                      class="icon"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667"
-                        stroke="currentColor"
-                        stroke-width="1.21"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="250">
-                <div class="feature-img">
-                  <img
-                    src="assets/images/illustrations/feature-illustration-1-blue.svg"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              id="feature-2"
-              class="row g-6 gx-lg-14 gx-xl-20 align-center mt-10 flex-row-reverse"
-            >
-              <div
-                class="col-lg-6 col-xl-6"
-                data-aos="fade-up-sm"
-                data-aos-delay="150"
-              >
-                <div class="content">
-                  <h1 class="mb-8">The transformation journey </h1>
-                  <p class="mb-6">
-                    We help medium sized businesses to transform their technology infrastructure to adapt for the data and AI world
-                  </p>
-                  <ul class="list-unstyled list-check mb-8">
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Single source of truth</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Modern data stack with connected data</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Insights & access with semantic core and APIs</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>ML & AI readiness a headless intelligence</span>
-                    </li>
-                  </ul>
-                  <p class="mb-6">
-                    Transform your readership understanding into actionable
-                    growth.
-                  </p>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                    target="_blank"
-                    class="arrow-link arrow-link-primary text-primary gap-3"
-                  >
-                    <span>Talk to us about your project</span>
-                    <svg
-                      class="icon"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667"
-                        stroke="currentColor"
-                        stroke-width="1.21"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="250">
-                <div class="feature-img">
-                  <img
-                    src="assets/images/fabriq/Data engineering and consulting v2.png  "
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-            <div id="feature-3" class="row g-6 gx-lg-14 gx-xl-20 align-center mt-10">
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="150">
-                <div class="content">
-                  <h1 class="mb-8">Consulting & Strategic Services</h1>
-                  <p class="mb-6">
-                    Experience the power of data through our interactive insights. 
-                    Transform complex analytics into actionable insights and drive your business to new heights.
-
-                  </p>
-                  <ul class="list-unstyled list-check mb-8">
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Go into range of use cases & list of top priority with non-technical stakeholders</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Deep dive into technical details with engineers</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Infrastructure, analytics & reporting review</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Data roadmap and strategy document with implementation plan</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Architect single source of truth and build data pipeline move cleaned data to a central repository</span>
-                    </li>
-                  </ul>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                    target="_blank"
-                    class="arrow-link arrow-link-primary text-primary gap-3"
-                  >
-                    <span>Talk to us about your project</span>
-                    <svg
-                      class="icon"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667"
-                        stroke="currentColor"
-                        stroke-width="1.21"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="250">
-                <div class="feature-img">
-                  <img
-                    src="assets/images/fabriq/engagement model.png"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-            id="feature-4"
-              class="row g-6 gx-lg-14 gx-xl-20 align-center mt-10 flex-row-reverse"
-            >
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="150">
-                <div class="content">
-                  <h1 class="mb-8">Technology and Engineering services </h1>
-                  <p class="mb-6">
-                    We go into use case details to determine the right technology tools and engineering services 
-                  </p>
-                  <ul class="list-unstyled list-check mb-8">
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Core data model and technology architecture </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Tools selection</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Implementation </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>This step sets up the data infrastructure and brings together </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Provides information on what is available </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Easy access through direct SQL querying or APIs for downstream usage / analytics </span>
-                    </li>
-                  </ul>
-                  <p class="mb-6">
-                    Streamline your data dialogue within your digital workspace.
-                  </p>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                    target="_blank"
-                    class="arrow-link arrow-link-primary text-primary gap-3"
-                  >
-                    <span>Talk to us about your project</span>
-                    <svg
-                      class="icon"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667"
-                        stroke="currentColor"
-                        stroke-width="1.21"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="250">
-                <div class="feature-img">
-                  <img
-                    src="assets/images/illustrations/feature-illustration-1-blue.svg"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-            <div id="feature-5" class="row g-6 gx-lg-14 gx-xl-20 align-center mt-10">
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="150">
-                <div class="content">
-                  <h1 class="mb-8">Data as managed service</h1>
-                  <p class="mb-6">
-                    In an ever changing ecosystem, is transition from building to managing a concern? Don’t worry we have got you covered. We can run it as a service till your internal capabilities ramp up
-                  </p>
-                  <ul class="list-unstyled list-check mb-8">
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Assist internal teams to maintain and improve </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Keep updated roadmap </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Implement new capabilities </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>We will manage the data infrastructure and train people</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Upgrade and ensure accessibility</span>
-                    </li>
-                  </ul>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                    target="_blank"
-                    class="arrow-link arrow-link-primary text-primary gap-3"
-                  >
-                    <span>Talk to us about your project</span>
-                    <svg
-                      class="icon"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667"
-                        stroke="currentColor"
-                        stroke-width="1.21"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="250">
-                <div class="feature-img">
-                  <img
-                    src="assets/images/illustrations/feature-illustration-3-blue.svg"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-            id="feature-6"
-              class="row g-6 gx-lg-14 gx-xl-20 align-center mt-10 flex-row-reverse"
-            >
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="150">
-                <div class="content">
-                  <h1 class="mb-8">About team</h1>
-                  <p class="mb-6">
-                    The team has wide ranging experience across industries, functions and geographies
-                  </p>
-                  <ul class="list-unstyled list-check mb-8">
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Entrepreneurial team with experience in setting up and scaling businesses </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Data engineering and large scale data automation for businesses</span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Product / Platform development </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Growth (user & revenue) in consumer Internet, media & publishing, financial services  </span>
-                    </li>
-                    <li>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 18 18"
-                        class="icon"
-                      >
-                        <g>
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="m3.75 9 3.75 3.75 7.5-7.5"
-                          />
-                        </g>
-                      </svg>
-                      <span>Past deployments for clients in media, brand / agencies, financial services, and telco </span>
-                    </li>
-                  </ul>
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                    target="_blank"
-                    class="arrow-link arrow-link-primary text-primary gap-3"
-                  >
-                    <span>Talk to us about your project</span>
-                    <svg
-                      class="icon"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667"
-                        stroke="currentColor"
-                        stroke-width="1.21"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6" data-aos="fade-up-sm" data-aos-delay="250">
-                <div class="feature-img">
-                  <img
-                    src="assets/images/illustrations/feature-illustration-2-blue.svg"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Use cases -->
-        <section
-          id="usecase"
-          class="bg-striped bg-striped-sm bg-striped-bottom bg-lite-blue py-20 py-lg-30"
-        >
-          <div class="container">
-            <div class="row justify-center mb-18">
-              <div class="col-lg-9">
-                <div class="text-center">
-                  <h1 class="mb-0" data-aos="fade-up-sm" data-aos-delay="100">
-                    Existing tech stack investments leveraged with Fabriq’s
-                    out-of-the-box integrations for over 100+ tools and
-                    platforms.
-                  </h1>
-                </div>
-              </div>
-            </div>
-            <div
-              class="row justify-center row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gx-8 gy-14"
-            >
-              <img src="assets/images/tools-images/google.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/instagram.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/slack.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/pinterest.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/facebook.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/spotify.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/youtube.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/adwords.png" alt="" class="img-usecase"/>
-              <img src="assets/images/tools-images/stripe.png" alt="" class="img-usecase"/>
-            </div>
-
-            <div class="text-center mt-12">
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                target="_blank"
-                class="btn btn-primary"
-                data-aos="fade-up-sm"
-                data-aos-delay="200"
-                >Connect with us</a
-              >
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer class="footer bg-striped pt-10 pt-lg-15">
+      <!-- About Section -->
+      <section id="about" style="background: var(--color-bg-secondary); border-top: 1px solid var(--glass-border);">
         <div class="container">
-          <div class="row g-10">
-            <div class="col-lg-3 order-lg-1 me-auto">
-              <div class="footer-widget text-center text-lg-start">
-                <span>
-                  Fabriq
-                  <img
-                    src="assets/images/fabriq_logo.png"
-                    alt=""
-                    class="img-fluid"
-                    width="50"
-                  />
-                </span>
-                <p class="fs-sm mb-0 mt-4">
-                  An AI-powered data platform built for modern businesses.
-                </p>
-              </div>
+          <div class="feature-row">
+            <div class="feature-content" data-aos="fade-up-sm">
+              <span class="section-label">About Us</span>
+              <h2>Expert Team, Proven Results</h2>
+              <p>Our team has wide-ranging experience across industries, functions, and geographies.</p>
+              <ul class="feature-list">
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Entrepreneurial team with experience scaling businesses</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Data engineering and large-scale automation expertise</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Product & platform development experience</span>
+                </li>
+                <li>
+                  <span class="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </span>
+                  <span>Growth expertise in media, fintech, and telco</span>
+                </li>
+              </ul>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="arrow-link">
+                <span>Meet our team</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
             </div>
-            <div class="col-lg-9 col-xl-8 order-lg-2">
-              <div class="row g-6">
-                <div class="col-md-4 col-lg-4">
-                  <div class="footer-widget text-center text-md-start">
-                    <h6 class="mb-2">Data Products</h6>
-                    <ul class="link-list list-unstyled mb-0">
-                      <li>
-                        <a href="#feature-1"> Ready for modern data?</a>
-                      </li>
-                      <li>
-                        <a href="#feature-2"> Data transformation journey </a>
-                      </li>
-                      <li>
-                        <a href="#feature-3">Services</a>
-                      </li>
-                      <li>
-                        <a href="#feature-4">Technology and Engineering </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4 col-lg-4">
-                  <div class="footer-widget text-center text-md-start">
-                    <ul class="link-list list-unstyled mt-7">
-                      <li>
-                        <a href="#feature-5">Data as managed service</a>
-                      </li>
-                      <li>
-                        <a href="#feature-6">About team</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4 col-lg-4">
-                  <div class="footer-widget text-center text-md-start">
-                    <h6 class="mb-4">Join the hall of fame of great businesses and leaders who have successfully navigated to a data-first and AI world</h6>
-                    <form action="#">
-                      <div class="input-group center">
-                        <a
-                        href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com"
-                        target="_blank"
-                        class="btn btn-lg btn-gradient-1"
-                        data-aos="fade-up-sm"
-                        data-aos-delay="200"
-                        >Connect with us</a>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <div class="feature-image" data-aos="fade-up-sm" data-aos-delay="150">
+              <img src="assets/images/illustrations/feature-illustration-2-blue.svg" alt="About Team" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integrations Section -->
+      <section class="integrations-section" id="integrations">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">Integrations</span>
+            <h2>100+ Tools & Platforms Supported</h2>
+            <p>Leverage your existing tech stack investments with Fabriq's out-of-the-box integrations.</p>
+          </div>
+          
+          <div class="integrations-grid stagger-container" data-aos="fade-up-sm" data-aos-delay="100">
+            <div class="integration-item">
+              <img src="assets/images/tools-images/google.png" alt="Google" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/instagram.png" alt="Instagram" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/slack.png" alt="Slack" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/pinterest.png" alt="Pinterest" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/facebook.png" alt="Facebook" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/spotify.png" alt="Spotify" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/youtube.png" alt="YouTube" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/adwords.png" alt="Google Ads" />
+            </div>
+            <div class="integration-item">
+              <img src="assets/images/tools-images/stripe.png" alt="Stripe" />
             </div>
           </div>
 
-          <div class="text-center py-6 mt-8">
-            <p class="fs-sm mb-0">
-              Copyright <span class="text-primary">© 2023 fabriq labs, Inc</span>. 
-            </p>
+          <div class="text-center mt-5" data-aos="fade-up-sm" data-aos-delay="200">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="btn btn-primary btn-lg">
+              Connect With Us
+            </a>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card" data-aos="fade-up-sm">
+            <h2>Ready to Transform Your Data?</h2>
+            <p>Join the businesses that have successfully navigated to a data-first and AI-ready world.</p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="btn btn-primary btn-lg">
+              Start Your Journey
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="logo-text">Fabriq</span>
+            <p>An AI-powered data platform built for modern businesses. We help you transform your data infrastructure and become AI-ready.</p>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#feature-1">Data Assessment</a></li>
+              <li><a href="#feature-2">Transformation</a></li>
+              <li><a href="#feature-3">Consulting</a></li>
+              <li><a href="#feature-4">Engineering</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#feature-5">Managed Services</a></li>
+              <li><a href="#about">About Team</a></li>
+              <li><a href="#integrations">Integrations</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-cta">
+            <h4>Join the leaders who have transformed their data infrastructure</h4>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">
+              Connect With Us
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>© 2024 Fabriq Labs, Inc. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- JS -->
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      menuToggle?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+
+      // Navbar Scroll Effect
+      const navbar = document.getElementById('navbar');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Node Connection Animation
+      const canvas = document.getElementById('nodeCanvas');
+      const ctx = canvas.getContext('2d');
+      let nodes = [];
+      let animationFrame;
+
+      function initCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        nodes = [];
+        const nodeCount = Math.floor((canvas.width * canvas.height) / 25000);
+        
+        for (let i = 0; i < nodeCount; i++) {
+          nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 2 + 1
+          });
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw nodes
+        nodes.forEach((node, i) => {
+          // Update position
+          node.x += node.vx;
+          node.y += node.vy;
+          
+          // Bounce off edges
+          if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+          if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+          
+          // Draw node
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 212, 170, 0.4)';
+          ctx.fill();
+          
+          // Draw connections
+          nodes.forEach((otherNode, j) => {
+            if (i !== j) {
+              const dx = node.x - otherNode.x;
+              const dy = node.y - otherNode.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              
+              if (distance < 150) {
+                ctx.beginPath();
+                ctx.moveTo(node.x, node.y);
+                ctx.lineTo(otherNode.x, otherNode.y);
+                ctx.strokeStyle = `rgba(0, 212, 170, ${0.1 * (1 - distance / 150)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            }
+          });
+        });
+        
+        animationFrame = requestAnimationFrame(animate);
+      }
+
+      // Initialize
+      initCanvas();
+      animate();
+
+      // Resize handler
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(animationFrame);
+        initCanvas();
+        animate();
+      });
+
+      // AOS Re-initialization (if needed)
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    </script>
   </body>
 </html>
