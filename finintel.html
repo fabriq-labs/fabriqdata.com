@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_PIa24j6n4B2noaTSB5C6TEcTHjgSBvZn58NI9AMI095',{api_host:'https://app.posthog.com'})
+    </script>
+
+    <!-- Title -->
+    <title>FinIntel | Fabriq - AI-Powered Accounting Automation</title>
+
+    <!-- SEO meta tags -->
+    <meta name="description" content="Fabriq FinIntel: AI-powered accounting automation for retailer deductions, insurance commission reconciliation, and cross-border consolidation." />
+    <meta name="keywords" content="accounting automation, retailer deductions, insurance commission reconciliation, cross-border consolidation, AI accounting, FinIntel" />
+    <meta name="author" content="Fabriq" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FinIntel | Fabriq - AI-Powered Accounting Automation" />
+    <meta property="og:description" content="Accounting is Complex. It Doesn't Have to Be Chaotic. AI that extracts, classifies, matches, and reconciles at scale." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fabriqdata.com/finintel" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/fabriq_logo.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <style>
+      /* FinIntel Page Specific Styles */
+      .finintel-hero {
+        padding: 180px 0 100px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .finintel-hero::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 900px;
+        height: 900px;
+        background: radial-gradient(circle, rgba(0, 212, 170, 0.12) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .finintel-hero-content {
+        text-align: center;
+        max-width: 820px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .finintel-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.15;
+      }
+
+      .finintel-hero .hero-description {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        max-width: 680px;
+        margin: 0 auto 2.5rem;
+      }
+
+      /* Problem Cards */
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .problem-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: var(--transition-medium);
+      }
+
+      .problem-card:hover {
+        border-color: rgba(0, 212, 170, 0.3);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .problem-card .icon-wrapper {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba(0, 212, 170, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+      }
+
+      .problem-card .icon-wrapper svg {
+        width: 26px;
+        height: 26px;
+        stroke: var(--color-accent-primary);
+      }
+
+      .problem-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
+        font-family: var(--font-body);
+        font-weight: 600;
+      }
+
+      .problem-card p {
+        font-size: 0.93rem;
+        color: var(--color-text-muted);
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* Solution Section */
+      .solution-section {
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .solution-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .solution-text h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .solution-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        color: var(--color-text-secondary);
+      }
+
+      .solution-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .solution-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 0.85rem;
+        color: var(--color-text-secondary);
+        font-size: 0.97rem;
+      }
+
+      .solution-features li svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--color-accent-primary);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .solution-visual .visual-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        position: relative;
+      }
+
+      .solution-visual .visual-card::before {
+        content: '';
+        position: absolute;
+        inset: -15px;
+        background: var(--gradient-glow);
+        filter: blur(50px);
+        opacity: 0.3;
+        z-index: -1;
+        border-radius: 24px;
+      }
+
+      .capability-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .capability-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: rgba(0, 212, 170, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 212, 170, 0.1);
+      }
+
+      .capability-item .cap-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--gradient-primary);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .capability-item .cap-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--color-bg-primary);
+        fill: none;
+      }
+
+      .capability-item .cap-text {
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        font-weight: 500;
+      }
+
+      /* Outcomes Section */
+      .outcomes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .outcome-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: var(--transition-medium);
+      }
+
+      .outcome-card:hover {
+        border-color: rgba(0, 212, 170, 0.3);
+        transform: translateY(-4px);
+      }
+
+      .outcome-card .outcome-domain {
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .outcome-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        font-family: var(--font-body);
+        font-weight: 600;
+      }
+
+      .outcome-list {
+        list-style: none;
+      }
+
+      .outcome-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.45rem 0;
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .outcome-list li:last-child {
+        border-bottom: none;
+      }
+
+      .outcome-list li svg {
+        width: 16px;
+        height: 16px;
+        stroke: var(--color-accent-primary);
+        flex-shrink: 0;
+      }
+
+      /* Credentials Section */
+      .credentials-section {
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .credentials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .credential-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .credential-card .stat {
+        font-family: var(--font-heading);
+        font-size: 3rem;
+        font-weight: 800;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .credential-card h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .credential-card p {
+        font-size: 0.88rem;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        position: relative;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .contact-text h2 {
+        margin-bottom: 1rem;
+      }
+
+      .contact-text p {
+        color: var(--color-text-secondary);
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--color-text-muted);
+        font-size: 0.93rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .contact-detail svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--color-accent-primary);
+        flex-shrink: 0;
+      }
+
+      .contact-form-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--glass-border);
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease;
+        box-sizing: border-box;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-accent-primary);
+      }
+
+      .form-group select option {
+        background: #0d1117;
+        color: var(--color-text-primary);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      /* Override global section padding so each section fits in one viewport */
+      section {
+        padding: 72px 0;
+      }
+
+      .solution-section,
+      .credentials-section {
+        padding: 72px 0;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        margin-bottom: 0.75rem;
+      }
+
+      .section-header p {
+        font-size: 1rem;
+      }
+
+      .problem-grid,
+      .outcomes-grid {
+        margin-top: 2rem;
+      }
+
+      .credentials-grid {
+        margin-top: 2rem;
+      }
+
+      /* Tighter card padding so 3-col grids fit in viewport height */
+      .problem-card,
+      .outcome-card {
+        padding: 1.5rem;
+      }
+
+      .credential-card {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .credential-card .stat {
+        font-size: 2.25rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .problem-grid,
+        .outcomes-grid,
+        .credentials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .solution-content,
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .finintel-hero {
+          padding: 140px 0 60px;
+        }
+
+        .finintel-hero h1 {
+          font-size: 2rem;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="grid-pattern"></div>
+
+    <!-- Node Connections Canvas -->
+    <canvas id="nodeCanvas" class="node-connections"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar-custom" id="navbar">
+      <div class="container">
+        <a href="/" class="navbar-brand">
+          <span class="logo-text">Fabriq</span>
+          <img src="assets/images/fabriq_logo.png" alt="Fabriq" class="logo-img" />
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="#">Solutions</a>
+            <div class="dropdown-menu">
+              <a href="/books.html">Agentic FinOps</a>
+              <a href="/finintel.html">FinIntel</a>
+            </div>
+          </li>
+          <li><a href="/#features">Services</a></li>
+          <li><a href="/#about">About</a></li>
+          <li>
+            <a href="https://books.fabriqdata.com" target="_blank" class="btn btn-primary">
+              Get Started
+            </a>
+          </li>
+        </ul>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="finintel-hero">
+        <div class="container">
+          <div class="finintel-hero-content" data-aos="fade-up-sm">
+            <div class="hero-badge">
+              <span class="dot"></span>
+              <span>FinIntel by Fabriq</span>
+            </div>
+
+            <h1>
+              Accounting is Complex.<br />
+              <span class="gradient-text">It Doesn't Have to Be Chaotic.</span>
+            </h1>
+
+            <p class="hero-description">
+              Fabriq FinIntel is our dedicated accounting automation practice — built for finance teams
+              drowning in deductions, carrier statements, and cross-border consolidations.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary btn-lg">
+                Request a Conversation
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="#problem" class="btn btn-glass btn-lg">
+                See the Problem
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem Section -->
+      <section id="problem">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">The Challenge</span>
+            <h2>Three domains where finance teams lose the most time</h2>
+            <p>Legacy systems and manual processes create cascading errors, delayed closes, and lost revenue across every industry.</p>
+          </div>
+
+          <div class="problem-grid" data-aos="fade-up-sm" data-aos-delay="100">
+            <div class="problem-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                </svg>
+              </div>
+              <h3>Retailer Deductions &amp; Short-pay Reconciliation</h3>
+              <p>Consumer goods brands experience significant annual losses from unvalidated deductions by retail chains. Matching deductions to delivery proof and disputing chargebacks remains entirely manual — burning hours and missing deadlines.</p>
+            </div>
+
+            <div class="problem-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                </svg>
+              </div>
+              <h3>Insurance Commission Reconciliation</h3>
+              <p>Carrier statement formats vary wildly — no two are the same. Insurance agencies spend days every month manually matching statement rows to policy records. Errors compound and disputes are difficult to trace.</p>
+            </div>
+
+            <div class="problem-card">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                </svg>
+              </div>
+              <h3>Cross-Border Consolidation</h3>
+              <p>Companies with foreign subsidiaries close books days or weeks late. Intercompany eliminations happen in Excel, multi-currency revaluations are error-prone, and GAAP reconciliation requires manual intervention every period.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solution Section -->
+      <section class="solution-section" id="solution">
+        <div class="container">
+          <div class="solution-content">
+            <div class="solution-text" data-aos="fade-up-sm">
+              <span class="section-label" style="justify-content: flex-start;">What We Do</span>
+              <h2>AI That Extracts, Classifies, Matches &amp; Reconciles at Scale</h2>
+              <p>FinIntel deploys purpose-built AI agents trained on the specific document types and workflows that break finance teams — not generic LLMs bolted onto spreadsheets.</p>
+
+              <ul class="solution-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Ingest unstructured carrier statements, remittance files, and subsidiary reports</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Classify and match line items across systems with high precision</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Flag exceptions and generate audit-ready dispute packages automatically</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Close books faster with automated intercompany eliminations and GAAP reconciliation</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Finance-grade compliance and full auditability at every step</span>
+                </li>
+              </ul>
+
+              <a href="#contact" class="arrow-link">
+                <span>Talk to the team</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="solution-visual" data-aos="fade-up-sm" data-aos-delay="150">
+              <div class="visual-card">
+                <div class="capability-list">
+                  <div class="capability-item">
+                    <div class="cap-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                      </svg>
+                    </div>
+                    <span class="cap-text">Document ingestion &amp; extraction</span>
+                  </div>
+                  <div class="capability-item">
+                    <div class="cap-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                      </svg>
+                    </div>
+                    <span class="cap-text">AI classification &amp; line-item matching</span>
+                  </div>
+                  <div class="capability-item">
+                    <div class="cap-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                      </svg>
+                    </div>
+                    <span class="cap-text">Exception flagging &amp; dispute packaging</span>
+                  </div>
+                  <div class="capability-item">
+                    <div class="cap-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582" />
+                      </svg>
+                    </div>
+                    <span class="cap-text">Cross-border multi-currency consolidation</span>
+                  </div>
+                  <div class="capability-item">
+                    <div class="cap-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <span class="cap-text">Audit-ready GAAP reconciliation reports</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expected Outcomes Section -->
+      <section id="outcomes">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">Expected Outcomes</span>
+            <h2>What changes when FinIntel runs your reconciliation</h2>
+            <p>Fewer manual hours, fewer errors, faster closes — measurable across every domain we serve.</p>
+          </div>
+
+          <div class="outcomes-grid" data-aos="fade-up-sm" data-aos-delay="100">
+            <div class="outcome-card">
+              <div class="outcome-domain">Retailer Deductions</div>
+              <h3>Short-pay Reconciliation</h3>
+              <ul class="outcome-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Significant reduction in unrecovered deductions</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Automated dispute package generation</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Fewer manual analyst hours per cycle</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="outcome-card">
+              <div class="outcome-domain">Insurance Commissions</div>
+              <h3>Commission Reconciliation</h3>
+              <ul class="outcome-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Days of manual matching reduced to hours</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Handles all carrier statement formats</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Error rate drops materially</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="outcome-card">
+              <div class="outcome-domain">Cross-Border</div>
+              <h3>Consolidation &amp; Close</h3>
+              <ul class="outcome-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Faster month-end close cycles</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>Intercompany eliminations automated</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>GAAP reconciliation errors eliminated</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Credentials / Team Section -->
+      <section class="credentials-section" id="team">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up-sm">
+            <span class="section-label">Who We Are</span>
+            <h2>Built by practitioners, not just engineers</h2>
+            <p>Our team brings decades of experience operating at the intersection of finance, data, and enterprise software.</p>
+          </div>
+
+          <div class="credentials-grid" data-aos="fade-up-sm" data-aos-delay="100">
+            <div class="credential-card">
+              <div class="stat">25+</div>
+              <h4>Years of Scale</h4>
+              <p>Deep experience in global banking, aviation, and SaaS enterprises — building data and AI platforms that run at scale.</p>
+            </div>
+
+            <div class="credential-card">
+              <div class="stat">US &amp; IN</div>
+              <h4>Cross-Border Expertise</h4>
+              <p>Working with early partners across the US and India on complex multi-entity, multi-currency accounting workflows.</p>
+            </div>
+
+            <div class="credential-card">
+              <div class="stat">100%</div>
+              <h4>Finance-Grade Reliability</h4>
+              <p>Every output is audit-ready. Compliance and traceability are built into the platform, not bolted on later.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section" id="contact">
+        <div class="container">
+          <div class="contact-content">
+            <div class="contact-text" data-aos="fade-up-sm">
+              <span class="section-label" style="justify-content: flex-start;">Get in Touch</span>
+              <h2>Request a Conversation</h2>
+              <p>Tell us about your accounting challenge. We work with a small number of early partners and give each engagement the attention it deserves.</p>
+
+              <div class="contact-detail">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+                <a href="mailto:hello@fabriqdata.com" style="color: var(--color-text-muted); text-decoration: none;">hello@fabriqdata.com</a>
+              </div>
+            </div>
+
+            <div class="contact-form-card" data-aos="fade-up-sm" data-aos-delay="150">
+              <form id="finintelForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="firm">Firm / Company</label>
+                    <input type="text" id="firm" name="firm" placeholder="Company name" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="domain">Domain</label>
+                  <select id="domain" name="domain" required>
+                    <option value="" disabled selected>Select your domain</option>
+                    <option value="Retailer Deductions / Short-pay">Retailer Deductions / Short-pay</option>
+                    <option value="Insurance Commission Reconciliation">Insurance Commission Reconciliation</option>
+                    <option value="Cross-Border Consolidation">Cross-Border Consolidation</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="challenge">Describe your challenge <span style="color: var(--color-text-muted); font-weight: 400;">(optional)</span></label>
+                  <textarea id="challenge" name="challenge" placeholder="What's taking the most time? Where do errors occur most often?"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  Request a Conversation
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="logo-text">Fabriq</span>
+            <p>AI-powered accounting automation for finance teams dealing with deductions, commission reconciliation, and cross-border consolidations.</p>
+          </div>
+
+          <div class="footer-links">
+            <h4>FinIntel</h4>
+            <ul>
+              <li><a href="#problem">The Challenge</a></li>
+              <li><a href="#solution">Our Solution</a></li>
+              <li><a href="#outcomes">Expected Outcomes</a></li>
+              <li><a href="#team">Our Team</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/">Fabriq Data</a></li>
+              <li><a href="/books.html">Agentic FinOps</a></li>
+              <li><a href="/#about">About Team</a></li>
+              <li><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com" target="_blank">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-cta">
+            <h4>Ready to automate your reconciliation?</h4>
+            <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">
+              Request a Conversation
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2024 Fabriq Labs, Inc. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      menuToggle?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+
+      // Navbar Scroll Effect
+      const navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Node Connection Animation
+      const canvas = document.getElementById('nodeCanvas');
+      const ctx = canvas.getContext('2d');
+      let nodes = [];
+      let animationFrame;
+
+      function initCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        nodes = [];
+        const nodeCount = Math.floor((canvas.width * canvas.height) / 25000);
+
+        for (let i = 0; i < nodeCount; i++) {
+          nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 2 + 1
+          });
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        nodes.forEach((node, i) => {
+          node.x += node.vx;
+          node.y += node.vy;
+
+          if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+          if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 212, 170, 0.4)';
+          ctx.fill();
+
+          nodes.forEach((otherNode, j) => {
+            if (i !== j) {
+              const dx = node.x - otherNode.x;
+              const dy = node.y - otherNode.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 150) {
+                ctx.beginPath();
+                ctx.moveTo(node.x, node.y);
+                ctx.lineTo(otherNode.x, otherNode.y);
+                ctx.strokeStyle = `rgba(0, 212, 170, ${0.1 * (1 - distance / 150)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            }
+          });
+        });
+
+        animationFrame = requestAnimationFrame(animate);
+      }
+
+      initCanvas();
+      animate();
+
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(animationFrame);
+        initCanvas();
+        animate();
+      });
+
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+
+      // Form submission — builds mailto with form data
+      document.getElementById('finintelForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const firm = document.getElementById('firm').value;
+        const email = document.getElementById('email').value;
+        const domain = document.getElementById('domain').value;
+        const challenge = document.getElementById('challenge').value;
+
+        const subject = encodeURIComponent(`FinIntel Inquiry - ${domain} - ${firm}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\nFirm: ${firm}\nEmail: ${email}\nDomain: ${domain}\n\nChallenge:\n${challenge}`
+        );
+
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@fabriqdata.com&su=${subject}&body=${body}`, '_blank');
+      });
+    </script>
+  </body>
+</html>
