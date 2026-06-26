@@ -444,6 +444,52 @@
         gap: 1rem;
       }
 
+      /* Override global section padding so each section fits in one viewport */
+      section {
+        padding: 72px 0;
+      }
+
+      .solution-section,
+      .credentials-section {
+        padding: 72px 0;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        margin-bottom: 0.75rem;
+      }
+
+      .section-header p {
+        font-size: 1rem;
+      }
+
+      .problem-grid,
+      .outcomes-grid {
+        margin-top: 2rem;
+      }
+
+      .credentials-grid {
+        margin-top: 2rem;
+      }
+
+      /* Tighter card padding so 3-col grids fit in viewport height */
+      .problem-card,
+      .outcome-card {
+        padding: 1.5rem;
+      }
+
+      .credential-card {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .credential-card .stat {
+        font-size: 2.25rem;
+      }
+
       /* Responsive */
       @media (max-width: 1024px) {
         .problem-grid,
