@@ -93,9 +93,11 @@ function scrollSpy() {
     .filter(Boolean);
 
   const setActive = () => {
+    const rail = document.querySelector(".rail");
+    const offset = rail ? rail.getBoundingClientRect().bottom + 8 : 96;
     let current = sections[0];
     for (const s of sections) {
-      if (s.getBoundingClientRect().top <= 96) current = s;
+      if (s.getBoundingClientRect().top <= offset) current = s;
     }
     for (const a of links) {
       a.classList.toggle("is-active", a.getAttribute("href") === `#${current.id}`);
