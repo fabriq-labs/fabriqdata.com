@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_PIa24j6n4B2noaTSB5C6TEcTHjgSBvZn58NI9AMI095',{api_host:'https://app.posthog.com'})
+  </script>
+  <title>Fabriq Books for accounting firms</title>
+  <meta name="description" content="Fabriq Books is the intelligence layer on the bookkeeping software your clients already use — reporting, document capture, reconciliation, and agents, with a person on every posting." />
+  <meta name="author" content="Fabriq" />
+  <meta property="og:title" content="Fabriq Books for accounting firms" />
+  <meta property="og:description" content="Keep the client’s books. Run capture, recon, group reporting, and agents in one workbench." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fabriqdata.com/accounts.html" />
+  <link rel="icon" href="assets/images/fabriq_logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/accounts.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="shell">
+    <aside class="rail">
+      <div>
+        <a class="wordmark" href="#intro">Fabriq Books</a>
+        <div class="rail-kicker"><a href="/">fabriqdata.com</a> · for accounting firms</div>
+      </div>
+      <nav aria-label="Exhibits">
+        <ul class="toc">
+          <li><a href="#intro"><span class="ex">—</span>The problem</a></li>
+          <li><a href="#sits"><span class="ex">—</span>Where it sits</a></li>
+          <li><a href="#who"><span class="ex">—</span>Who it’s for</a></li>
+          <li><a href="#connectors"><span class="ex">—</span>Connectors</a></li>
+          <li><a href="#reporting"><span class="ex">A</span>Group reporting</a></li>
+          <li><a href="#capture"><span class="ex">B</span>Document capture</a></li>
+          <li><a href="#reconcile"><span class="ex">C</span>Reconciliation</a></li>
+          <li><a href="#agents"><span class="ex">D</span>Workbench agents</a></li>
+          <li><a href="#firm"><span class="ex">E</span>How a firm uses it</a></li>
+          <li><a href="#trust"><span class="ex">F</span>Trust &amp; trail</a></li>
+          <li><a href="#extend"><span class="ex">G</span>Make it yours</a></li>
+          <li><a href="#pilot"><span class="ex">—</span>Pilot</a></li>
+          <li><a href="#status"><span class="ex">—</span>Live vs planned</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main" class="main">
+      <header class="hero" id="intro">
+        <div class="rail-kicker">For CPA &amp; bookkeeping firms</div>
+        <h1>Bookkeeping software keeps the books. Firms still do the work around them.</h1>
+        <p class="lede">Fabriq Books is the intelligence layer on the bookkeeping software your clients already use. This page walks through the problem, where the product sits, and how a firm runs reporting, document capture, reconciliation, and agents — with a person on every posting.</p>
+      </header>
+
+      <section aria-labelledby="problem-h">
+        <h2 id="problem-h">The problem</h2>
+        <div class="prose">
+          <p>Every client already has a general ledger — QuickBooks, Zoho Books, Sage. It is good at what it was built for: one company’s invoices, bills, and period close. That system of record should stay where it is.</p>
+          <p>A practice’s month is the work <strong>around</strong> that ledger. Staff pull invoices and bank statements out of PDFs, match each line to an account and a source document, then rebuild group reports the source GL cannot produce across entities and currencies. AP and AR often live in another system entirely. None of that is a “books” problem. It is a throughput problem — repeated across a book of clients on different software.</p>
+          <p>Replacing the client’s ERP is not realistic. A tool that only automates one slice (collections, spend, a single close checklist) still leaves extraction, reconciliation, and consolidation on the desk.</p>
+        </div>
+      </section>
+
+      <section id="sits" aria-labelledby="sits-h">
+        <h2 id="sits-h">Where Fabriq Books sits</h2>
+        <h3>The intelligence layer on systems that already exist</h3>
+        <div class="prose">
+          <p>Fabriq connects to the client’s books and to their AP/AR tools, does the work the GL leaves behind, and writes <strong>approved</strong> changes back. The client keeps their software. The firm gets one workbench, with a person on every posting.</p>
+          <p>Select a system to see how Fabriq connects.</p>
+        </div>
+
+        <div class="flow" aria-label="Architecture: client systems into Fabriq, then approved write-back">
+          <div class="flow-col">
+            <button class="node" type="button" data-jump="#connectors">
+              <div class="k">Client books</div>
+              <div class="v">QuickBooks · Zoho · Sage</div>
+            </button>
+            <button class="node" type="button" data-jump="#connectors">
+              <div class="k">AP / AR systems</div>
+              <div class="v">Bill.com · Salesforce</div>
+            </button>
+            <button class="node" type="button" data-jump="#capture">
+              <div class="k">Documents</div>
+              <div class="v">Invoices · statements · receipts</div>
+            </button>
+          </div>
+          <div class="edge"><span>bidirectional<br>sync</span><span class="arr">→</span><span>PDFs in</span></div>
+          <div class="fabriq">
+            <div class="badge">Firm layer</div>
+            <div class="v">Fabriq Books</div>
+            <div class="k">Extract · Reconcile · Group reports · Agents</div>
+            <p style="font-size:0.92rem;margin-top:0.35rem">Then a human review inbox — nothing posts without sign-off.</p>
+          </div>
+          <div class="edge"><span>approved<br>write-back</span><span class="arr">→</span><span>audit trail</span></div>
+          <div class="flow-col">
+            <div class="writeback">
+              <div class="k">Unchanged system of record</div>
+              <div class="v">Client books, updated only after review</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="well" data-media="layer">
+          <div data-video></div>
+        </div>
+      </section>
+
+      <section id="who" aria-labelledby="who-h">
+        <h2 id="who-h">Who it’s for</h2>
+        <h3>Practices that will not migrate the client’s GL</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>Write-up / bookkeeping</h4>
+            <p>A book of small clients on mixed QuickBooks and Zoho. The grind is capture, categorize, and rec — not a new chart of accounts.</p>
+          </article>
+          <article class="card">
+            <h4>Controller as a service</h4>
+            <p>Group clients, more than one entity, FX, a pack the source GL cannot produce cleanly. Reporting is the gap.</p>
+          </article>
+          <article class="card">
+            <h4>Recs-heavy close</h4>
+            <p>Bank and card volume that still gets matched line by line. Seniors review; juniors should not be hunting in two systems.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="connectors" aria-labelledby="conn-h">
+        <h2 id="conn-h">Connectors</h2>
+        <h3>Bidirectional with the books. Same pattern for AP and AR.</h3>
+        <p class="prose">QuickBooks, Zoho Books, and Xero are live. Sage, Bill.com, and Salesforce follow the same bidirectional pattern and are on the roadmap.</p>
+        <div class="filters" role="group" aria-label="Filter connectors">
+          <button class="chip is-on" type="button" data-filter="all">All</button>
+          <button class="chip" type="button" data-filter="live">Live today</button>
+          <button class="chip" type="button" data-filter="roadmap">Roadmap</button>
+        </div>
+        <div class="conn-grid">
+          <article class="conn" data-status="live">
+            <div class="tag">Live</div>
+            <h4>QuickBooks</h4>
+            <p>Forward sync of invoices, payments, contacts, and ledger. Write-back on the reverse-sync pattern after review.</p>
+          </article>
+          <article class="conn" data-status="live">
+            <div class="tag">Live</div>
+            <h4>Zoho Books</h4>
+            <p>Same normalized model as QuickBooks. One workbench when the book of clients is mixed.</p>
+          </article>
+          <article class="conn" data-status="live">
+            <div class="tag">Live</div>
+            <h4>Xero</h4>
+            <p>Direct sync into the same Fabriq ledger. Useful when a practice already spans QB and Xero.</p>
+          </article>
+          <article class="conn" data-status="roadmap">
+            <div class="tag road">Roadmap</div>
+            <h4>Sage</h4>
+            <p>Same bidirectional pattern as the live books connectors — not a second product.</p>
+          </article>
+          <article class="conn" data-status="roadmap">
+            <div class="tag road">Roadmap</div>
+            <h4>Bill.com</h4>
+            <p>AP documents and payments into the layer, so rec and reporting are not split from the bill workflow.</p>
+          </article>
+          <article class="conn" data-status="roadmap">
+            <div class="tag road">Roadmap</div>
+            <h4>Salesforce</h4>
+            <p>AR context (customers, invoices, collections state) next to the books — not a CRM replacement.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="reporting" aria-labelledby="rep-h">
+        <h2 id="rep-h">Exhibit A</h2>
+        <h3>Group reporting the source GL was not built to give a firm</h3>
+        <p class="prose">Multi-entity, foreign exchange, consolidation, and intercompany. Subsidiary books can stay in the client’s software; Fabriq is the HQ view, with drill-through to the posting.</p>
+        <div class="well" data-media="reporting">
+          <div data-video></div>
+          <div data-stills></div>
+        </div>
+      </section>
+
+      <section id="capture" aria-labelledby="cap-h">
+        <h2 id="cap-h">Exhibit B</h2>
+        <h3>Invoices, statements, and receipts — from PDF or image</h3>
+        <p class="prose">Extraction maps into the client’s chart of accounts. A person reviews before anything is booked. This is the intern-in-Excel step, done in the same workbench as rec.</p>
+        <div class="well" data-media="extract">
+          <div data-video></div>
+          <div data-stills></div>
+        </div>
+      </section>
+
+      <section id="reconcile" aria-labelledby="rec-h">
+        <h2 id="rec-h">Exhibit C</h2>
+        <h3>Reconciliation with a human in the loop</h3>
+        <p class="prose">The agent matches bank lines to a counter-account and a source document, then queues proposals. A reviewer approves or rejects. Every decision is on the trail.</p>
+        <div class="well" data-media="reconcile">
+          <div data-video></div>
+          <div data-stills></div>
+        </div>
+      </section>
+
+      <section id="agents" aria-labelledby="ag-h">
+        <h2 id="ag-h">Exhibit D</h2>
+        <h3>Workbench agents: a goal, a plan, a review inbox</h3>
+        <p class="prose">Templates today: book transactions, reconcile, categorise expenses, analyse spending, or a custom goal. The agent plans and proposes. Writes wait on approval unless the firm has chosen otherwise.</p>
+        <div class="well" data-media="workbench">
+          <div data-video></div>
+          <div data-stills></div>
+        </div>
+      </section>
+
+      <section id="firm" aria-labelledby="firm-h">
+        <h2 id="firm-h">Exhibit E</h2>
+        <h3>How a firm actually runs it</h3>
+        <p class="prose">Same product, three seats. Switch the role to see who does what.</p>
+        <div class="tabs" role="tablist" aria-label="Firm roles">
+          <button class="tab is-on" type="button" role="tab" aria-selected="true" data-role="junior">Junior / staff</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-role="senior">Senior / reviewer</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-role="partner">Partner / ops</button>
+        </div>
+        <div class="role-panel" data-role-panel="junior">
+          <h4>Run the work, don’t hunt across systems</h4>
+          <p>Start a Workbench session, drop statements, work the obvious matches. Ambiguous items stay in the inbox. The client’s QuickBooks or Zoho is not the place they spend the hour.</p>
+        </div>
+        <div class="role-panel" data-role-panel="senior" hidden>
+          <h4>Review an inbox, not a spreadsheet dump</h4>
+          <p>Approve, reject, or send back. The trail shows who proposed the match, what it was matched to, and who signed. Month-end review is a queue, not a reconstruction.</p>
+        </div>
+        <div class="role-panel" data-role-panel="partner" hidden>
+          <h4>One process across a mixed book of clients</h4>
+          <p>Standardize capture → rec → report without forcing a GL migration. Sell custom agents or a connector as a scoped engagement when a client does not fit the template.</p>
+        </div>
+      </section>
+
+      <section id="trust" aria-labelledby="trust-h">
+        <h2 id="trust-h">Exhibit F</h2>
+        <h3>Nothing hits the books without a person — by default</h3>
+        <ul class="check">
+          <li>Human-in-the-loop is the default. Auto-approve is optional — a firm setting, not required.</li>
+          <li>Every synced record keeps lineage: source system, source id, batch.</li>
+          <li>Roles control who can see a client, who can approve, and which fields they can change.</li>
+          <li>Client orgs are isolated. Staff switch entity; they do not blend books.</li>
+        </ul>
+      </section>
+
+      <section id="extend" aria-labelledby="ext-h">
+        <h2 id="ext-h">Exhibit G</h2>
+        <h3>Custom agents and bespoke integrations as a service line</h3>
+        <p class="prose">The platform is extensible on purpose: new connectors, new agent templates, new review steps. For a firm that is already the trusted advisor, that is a billable line — not a reason to rip out the client’s GL.</p>
+        <div class="well" data-media="extend">
+          <div data-video></div>
+        </div>
+      </section>
+
+      <section id="pilot" aria-labelledby="pilot-h">
+        <h2 id="pilot-h">Pilot</h2>
+        <h3>Two or three clients. Thirty days. Hours and unmatched lines, not a slide.</h3>
+        <div class="prose">
+          <p>Start with a 45-minute session on one mixed-software client. If it holds, we run a 30-day pilot on two or three clients: connect the books, import one statement cycle, run reconciliation and reporting in the workbench, and measure staff hours and unmatched volume against the month before.</p>
+        </div>
+        <div class="cta">
+          <h3>Next step</h3>
+          <p>A working session on your client stack.</p>
+          <div class="action">Bring one mixed-software client. We will show the layer on their books.</div>
+          <p style="margin-top:0.85rem"><a href="mailto:hello@fabriqdata.com">hello@fabriqdata.com</a></p>
+        </div>
+      </section>
+
+      <section id="status" aria-labelledby="st-h">
+        <h2 id="st-h">Live vs planned</h2>
+        <p class="prose">What you can use today, and what follows on the same architecture.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>QuickBooks, Zoho Books, Xero sync</td>
+                <td class="live">Available</td>
+                <td>Bidirectional with the client’s books</td>
+              </tr>
+              <tr>
+                <td>PDF / image extraction</td>
+                <td class="live">Available</td>
+                <td>Invoices, statements, receipts</td>
+              </tr>
+              <tr>
+                <td>Categorization and reconciliation with review inbox</td>
+                <td class="live">Available</td>
+                <td>Human sign-off before posting</td>
+              </tr>
+              <tr>
+                <td>Workbench agent templates</td>
+                <td class="live">Available</td>
+                <td>Book, reconcile, categorise, spending, custom</td>
+              </tr>
+              <tr>
+                <td>Multi-entity, FX, HQ consolidation view</td>
+                <td class="live">Available</td>
+                <td>Group reporting across entities</td>
+              </tr>
+              <tr>
+                <td>Write-back to the source GL</td>
+                <td class="live">Available</td>
+                <td>Approved changes sync back to the client’s books</td>
+              </tr>
+              <tr>
+                <td>Sage, Bill.com, Salesforce</td>
+                <td class="soon">Roadmap</td>
+                <td>Same bidirectional pattern as the live connectors</td>
+              </tr>
+              <tr>
+                <td>Full intercompany elimination close pack</td>
+                <td class="soon">Roadmap</td>
+                <td>Built on the existing multi-entity and FX model</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+    <button class="lightbox-close" type="button">Close</button>
+    <div class="lightbox-inner">
+      <img alt="" />
+    </div>
+  </dialog>
+
+  <script src="assets/js/accounts.js"></script>
+</body>
+</html>
