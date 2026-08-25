@@ -1,29 +1,14 @@
 const YOUTUBE_EMBED = "https://www.youtube.com/embed/2zdpp7nfMwo?rel=0";
 
 const MEDIA = {
-  layer: {
-    embed: YOUTUBE_EMBED,
-    title: "Where Fabriq sits",
-    stills: []
-  },
   extract: {
     embed: YOUTUBE_EMBED,
     title: "Document capture",
     stills: []
   },
-  reconcile: {
-    embed: YOUTUBE_EMBED,
-    title: "Reconciliation",
-    stills: []
-  },
   reporting: {
     embed: YOUTUBE_EMBED,
     title: "Group reporting",
-    stills: []
-  },
-  workbench: {
-    embed: YOUTUBE_EMBED,
-    title: "Workbench agents",
     stills: []
   },
   extend: {
