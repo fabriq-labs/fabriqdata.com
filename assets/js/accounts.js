@@ -1,13 +1,11 @@
-const YOUTUBE_EMBED = "https://www.youtube.com/embed/2zdpp7nfMwo?rel=0";
-
 const MEDIA = {
   extract: {
-    embed: YOUTUBE_EMBED,
+    embed: "https://www.youtube.com/embed/C4R5l5A4QEo?rel=0",
     title: "Document capture",
     stills: []
   },
   reporting: {
-    embed: YOUTUBE_EMBED,
+    embed: "https://www.youtube.com/embed/Lmp75l7yZwU?rel=0",
     title: "Group reporting",
     stills: []
   }
