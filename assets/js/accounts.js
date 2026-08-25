@@ -10,11 +10,6 @@ const MEDIA = {
     embed: YOUTUBE_EMBED,
     title: "Group reporting",
     stills: []
-  },
-  extend: {
-    embed: YOUTUBE_EMBED,
-    title: "Custom agents and integrations",
-    stills: []
   }
 };
 
