@@ -6,7 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_PIa24j6n4B2noaTSB5C6TEcTHjgSBvZn58NI9AMI095',{api_host:'https://app.posthog.com'})
+    posthog.init('phc_PIa24j6n4B2noaTSB5C6TEcTHjgSBvZn58NI9AMI095', {
+      api_host: 'https://us.i.posthog.com',
+      ui_host: 'https://us.posthog.com',
+      person_profiles: 'always',
+      capture_pageview: true,
+      capture_pageleave: true,
+      persistence: 'localStorage+cookie'
+    })
   </script>
   <title>Fabriq Books for accounting firms</title>
   <meta name="description" content="Fabriq Books is the intelligence layer on existing books, connected to the client’s ERP so the firm works live data — not a spreadsheet extract." />
@@ -191,11 +198,9 @@
         <h2 id="rec-h">Exhibit C</h2>
         <h3>Reconciliation with a human in the loop</h3>
         <p class="prose">The agent matches bank lines to a counter-account and a source document, then queues proposals. A reviewer approves or rejects. Every decision is on the trail.</p>
-        <div class="well">
-          <div class="placeholder" role="img" aria-label="Video coming soon: reconciliation walkthrough">
-            <div class="shot-meta">Video · coming soon</div>
-            <p class="play">Reconciliation walkthrough</p>
-          </div>
+        <div class="well" data-media="reconcile">
+          <div data-video></div>
+          <div data-stills></div>
         </div>
       </section>
 
@@ -203,11 +208,9 @@
         <h2 id="ag-h">Exhibit D</h2>
         <h3>Workbench agents: a goal, a plan, a review inbox</h3>
         <p class="prose">Templates today: book transactions, reconcile, categorise expenses, analyse spending, or a custom goal. The agent plans and proposes. Writes wait on approval unless the firm has chosen otherwise.</p>
-        <div class="well">
-          <div class="placeholder" role="img" aria-label="Video coming soon: workbench agents walkthrough">
-            <div class="shot-meta">Video · coming soon</div>
-            <p class="play">Workbench agents walkthrough</p>
-          </div>
+        <div class="well" data-media="workbench">
+          <div data-video></div>
+          <div data-stills></div>
         </div>
       </section>
 

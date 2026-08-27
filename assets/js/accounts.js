@@ -1,15 +1,98 @@
 const MEDIA = {
+  reporting: {
+    id: "75ii1aRK6Ow",
+    exhibit: "A",
+    title: "Group reporting",
+    stills: []
+  },
   extract: {
-    embed: "https://www.youtube.com/embed/C4R5l5A4QEo?rel=0",
+    id: "F63KXbll9QA",
+    exhibit: "B",
     title: "Document capture",
     stills: []
   },
-  reporting: {
-    embed: "https://www.youtube.com/embed/Lmp75l7yZwU?rel=0",
-    title: "Group reporting",
+  reconcile: {
+    id: "snGh5AhYKao",
+    exhibit: "C",
+    title: "Reconciliation",
+    stills: []
+  },
+  workbench: {
+    id: "9b7pBCSqemI",
+    exhibit: "D",
+    title: "Workbench agents",
     stills: []
   }
 };
+
+function capture(event, props) {
+  if (window.posthog && typeof window.posthog.capture === "function") {
+    window.posthog.capture(event, props);
+  }
+}
+
+function youtubeApi() {
+  if (window.YT && window.YT.Player) return Promise.resolve();
+  return new Promise((resolve) => {
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      if (typeof prev === "function") prev();
+      resolve();
+    };
+    if (!document.querySelector("script[src*='youtube.com/iframe_api']")) {
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.append(script);
+    }
+  });
+}
+
+function bindYouTubePlayer(iframe, spec) {
+  youtubeApi().then(() => {
+    const seen = new Set();
+    let timer = null;
+    const base = {
+      exhibit: spec.exhibit,
+      video_title: spec.title,
+      video_id: spec.id
+    };
+    const player = new window.YT.Player(iframe, {
+      events: {
+        onStateChange(e) {
+          if (e.data === window.YT.PlayerState.PLAYING) {
+            if (!seen.has("play")) {
+              seen.add("play");
+              capture("video_play", base);
+            }
+            if (!timer) {
+              timer = setInterval(() => {
+                const duration = player.getDuration();
+                if (!duration) return;
+                const percent = player.getCurrentTime() / duration;
+                for (const mark of [25, 50, 75]) {
+                  const key = `p${mark}`;
+                  if (percent >= mark / 100 && !seen.has(key)) {
+                    seen.add(key);
+                    capture("video_progress", { ...base, percent: mark });
+                  }
+                }
+              }, 1000);
+            }
+            return;
+          }
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+          if (e.data === window.YT.PlayerState.ENDED && !seen.has("ended")) {
+            seen.add("ended");
+            capture("video_complete", base);
+          }
+        }
+      }
+    });
+  });
+}
 
 function probe(url) {
   return fetch(url, { method: "HEAD" }).then((r) => r.ok).catch(() => false);
@@ -22,9 +105,10 @@ async function mountWell(el) {
   const videoHost = el.querySelector("[data-video]");
   const stillsHost = el.querySelector("[data-stills]");
 
-  if (spec.embed && videoHost) {
+  if (spec.id && videoHost) {
     const iframe = document.createElement("iframe");
-    iframe.src = spec.embed;
+    iframe.id = `yt-${el.dataset.media}`;
+    iframe.src = `https://www.youtube.com/embed/${spec.id}?rel=0&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
@@ -33,6 +117,7 @@ async function mountWell(el) {
     wrap.className = "player";
     wrap.append(iframe);
     videoHost.append(wrap);
+    bindYouTubePlayer(iframe, spec);
   }
 
   if (!stillsHost || !spec.stills.length) return;
@@ -124,12 +209,24 @@ function diagramJumps() {
   }
 }
 
+function trackLanding() {
+  for (const link of document.querySelectorAll('a[href^="mailto:"]')) {
+    link.addEventListener("click", () => {
+      capture("contact_click", {
+        location: "cta",
+        href: link.getAttribute("href")
+      });
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   for (const well of document.querySelectorAll("[data-media]")) mountWell(well);
   scrollSpy();
   connectorFilter();
   roleTabs();
   diagramJumps();
+  trackLanding();
 
   const dialog = document.getElementById("lightbox");
   dialog.querySelector(".lightbox-close").addEventListener("click", () => dialog.close());
