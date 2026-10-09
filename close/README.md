@@ -75,31 +75,32 @@ Period numbers are a business’s current month (cash, revenue, expenses, net in
 
 | File | Status | Role |
 | --- | --- | --- |
-| `index.html` | Built | Home. Nav is Product, Solutions, Integrations, Login, and Close my books. Menu rows are not links yet. |
+| `index.html` | Built | Home. |
 | `capture.html` | Source for the hero, not a public page | The live HTML product frame. Not linked from the nav. |
-| `close.css` | Built | Shared styles. Product UI is scoped under the stage. |
+| `close.css` | Built | Shared styles. |
+| `close.js` | Built | Menus, and the Close my books email. |
 | `media/hero.mp4` | Built | Silent looping hero, about 10 seconds, no audio. |
 | `media/hero-poster.jpg` | Built | Frame 0. Shows before the video paints. |
-| `how.html` | Not built | How the month closes. Not a top-level nav item. |
-| `start.html` | Not built | “Close my books.” Full service only. |
-| `firms.html` | Not built | Practice page, reached from Solutions. |
+| `how.html` | Built | How the month closes, and what is connected. Linked from Product and Integrations. |
+| `start.html` | Built | Close my books. Writes an email to hello@fabriqdata.com. |
+| `firms.html` | Built | Practice page, linked from Solutions. |
 
 ## Nav
 
 Wordmark, then Product, Solutions, Integrations, Login, and the Close my books button. Footer stays the name and hello@fabriqdata.com.
 
-Product opens the six homepage cards as a list, names only, not bold, and not links yet: AI categorization, Document capture, Agentic reconciliation, Accounts payable, Agentic close, Connectors.
+Product links to the six sections on `how.html`. The names stay regular weight.
 
-Solutions lists Businesses, and Bookkeeping and accounting firms. Same treatment: names only, not links yet. Firms is in this menu, not a hidden URL. The homepage itself stays written to the business owner.
+Solutions links Businesses to the homepage and Bookkeeping and accounting firms to `firms.html`. The homepage itself stays written to the business owner.
 
-Integrations uses a bold heading and regular items, with no extra line under a name:
+Integrations uses a bold heading and regular items, with no extra line under a name. Each item links to the matching row on `how.html`:
 
 - Ledgers — QuickBooks, Zoho Books, Xero.
 - Banks — Plaid.
 - Accounts payable — Bill.com.
 - Accounts receivable — Salesforce.
 
-Sage stays off this menu until it is asked for. Login is a text link to https://books.fabriqdata.com in a new tab. Close my books stays the only filled button. Nothing else in the menus links anywhere until those pages exist.
+Sage stays off this menu until it is asked for. Login is a text link to https://books.fabriqdata.com in a new tab. Close my books goes to `start.html` and stays the only filled button.
 
 The list has to stay open while the pointer moves from the label onto an item. The panel touches the label, so there is no gap for the pointer to fall through, and the list waits a moment before it closes. On a narrow screen the same lists sit behind Menu.
 
@@ -109,7 +110,7 @@ The list has to stay open while the pointer moves from the label onto an item. T
 
 ### Start (`start.html`)
 
-Fields: name, work email, company; ledger (QuickBooks, Xero, Zoho, or else); companies (1, 2–3, or more); how far behind; optional note on what is messy. The button writes to hello@fabriqdata.com until a form service exists. Copy: “We read it and write back. You will not get a login.”
+Fields: name, work email, company; whether the request is for a business or a firm; ledger (QuickBooks, Xero, Zoho Books, or else); companies (1, 2–3, or more); how far behind; optional note on what is messy. Submit opens an email to hello@fabriqdata.com until a form service exists. A link from the firms page preselects the firm. Copy on the page: “We read it and write back. You will not get a login.”
 
 ### Firms (`firms.html`)
 

@@ -22,12 +22,12 @@
         <button type="button" aria-expanded="false" aria-controls="menu-product">Product</button>
         <div class="panel" id="menu-product" hidden>
           <ul>
-            <li>AI categorization</li>
-            <li>Document capture</li>
-            <li>Agentic reconciliation</li>
-            <li>Accounts payable</li>
-            <li>Agentic close</li>
-            <li>Connectors</li>
+            <li><a href="how.html#categorization">AI categorization</a></li>
+            <li><a href="how.html#capture">Document capture</a></li>
+            <li><a href="how.html#reconciliation">Agentic reconciliation</a></li>
+            <li><a href="how.html#payable">Accounts payable</a></li>
+            <li><a href="how.html#close">Agentic close</a></li>
+            <li><a href="how.html#connectors">Connectors</a></li>
           </ul>
         </div>
       </div>
@@ -35,8 +35,8 @@
         <button type="button" aria-expanded="false" aria-controls="menu-solutions">Solutions</button>
         <div class="panel" id="menu-solutions" hidden>
           <ul>
-            <li>Businesses</li>
-            <li>Bookkeeping and accounting firms</li>
+            <li><a href="index.html">Businesses</a></li>
+            <li><a href="firms.html">Bookkeeping and accounting firms</a></li>
           </ul>
         </div>
       </div>
@@ -46,33 +46,33 @@
           <div class="group">
             <p class="subhead">Ledgers</p>
             <ul>
-              <li>QuickBooks</li>
-              <li>Zoho Books</li>
-              <li>Xero</li>
+              <li><a href="how.html#ledgers">QuickBooks</a></li>
+              <li><a href="how.html#ledgers">Zoho Books</a></li>
+              <li><a href="how.html#ledgers">Xero</a></li>
             </ul>
           </div>
           <div class="group">
             <p class="subhead">Banks</p>
             <ul>
-              <li>Plaid</li>
+              <li><a href="how.html#banks">Plaid</a></li>
             </ul>
           </div>
           <div class="group">
             <p class="subhead">Accounts payable</p>
             <ul>
-              <li>Bill.com</li>
+              <li><a href="how.html#billcom">Bill.com</a></li>
             </ul>
           </div>
           <div class="group">
             <p class="subhead">Accounts receivable</p>
             <ul>
-              <li>Salesforce</li>
+              <li><a href="how.html#salesforce">Salesforce</a></li>
             </ul>
           </div>
         </div>
       </div>
       <a href="https://books.fabriqdata.com" target="_blank" rel="noopener noreferrer">Login</a>
-      <a class="btn" href="#start">Close my books</a>
+      <a class="btn" href="start.html">Close my books</a>
     </nav>
   </header>
 
@@ -170,89 +170,13 @@
     <section class="start" id="start">
       <h2>Bring the month that is open.</h2>
       <p>Tell us where the books live and how far behind they are.</p>
-      <a class="btn" href="mailto:hello@fabriqdata.com?subject=Close%20my%20books">Close my books</a>
+      <a class="btn" href="start.html">Close my books</a>
     </section>
   </main>
 
   <footer class="colophon">
     <p>Fabriq Bookkeeping and <a href="mailto:hello@fabriqdata.com">hello@fabriqdata.com</a></p>
   </footer>
-  <script>
-    (function () {
-      var nav = document.getElementById("primary");
-      var toggle = document.querySelector(".nav-toggle");
-      var menus = document.querySelectorAll(".menu");
-      var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-      function setOpen(menu, open) {
-        var btn = menu.querySelector(":scope > button");
-        var panel = menu.querySelector(".panel");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        panel.hidden = !open;
-      }
-
-      function closeMenus(except) {
-        menus.forEach(function (menu) {
-          if (menu !== except) setOpen(menu, false);
-        });
-      }
-
-      function desktopHover() {
-        return fine.matches && !window.matchMedia("(max-width: 880px)").matches;
-      }
-
-      var closeTimer = 0;
-
-      menus.forEach(function (menu) {
-        var btn = menu.querySelector(":scope > button");
-        btn.addEventListener("click", function () {
-          if (desktopHover()) {
-            clearTimeout(closeTimer);
-            closeMenus(menu);
-            setOpen(menu, true);
-            return;
-          }
-          var open = btn.getAttribute("aria-expanded") === "true";
-          closeMenus(menu);
-          setOpen(menu, !open);
-        });
-        menu.addEventListener("mouseenter", function () {
-          if (!desktopHover()) return;
-          clearTimeout(closeTimer);
-          closeMenus(menu);
-          setOpen(menu, true);
-        });
-        menu.addEventListener("mouseleave", function () {
-          if (!desktopHover()) return;
-          clearTimeout(closeTimer);
-          closeTimer = setTimeout(function () { setOpen(menu, false); }, 200);
-        });
-        btn.addEventListener("focus", function () {
-          if (window.matchMedia("(max-width: 880px)").matches) return;
-          closeMenus(menu);
-          setOpen(menu, true);
-        });
-        menu.addEventListener("focusout", function (event) {
-          if (!menu.contains(event.relatedTarget)) setOpen(menu, false);
-        });
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") closeMenus();
-      });
-
-      document.addEventListener("click", function (event) {
-        if (!event.target.closest(".menu")) closeMenus();
-      });
-
-      toggle.addEventListener("click", function () {
-        var open = toggle.getAttribute("aria-expanded") === "true";
-        toggle.setAttribute("aria-expanded", open ? "false" : "true");
-        toggle.textContent = open ? "Menu" : "Close";
-        nav.classList.toggle("is-open", !open);
-        if (open) closeMenus();
-      });
-    })();
-  </script>
+  <script src="close.js"></script>
 </body>
 </html>

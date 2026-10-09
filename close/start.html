@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Close my books — Fabriq Bookkeeping</title>
+  <meta name="description" content="Tell us where the books live. We read it and write back. You will not get a login." />
+  <link rel="icon" href="../assets/images/fabriq_logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="close.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <a class="mark" href="index.html">Fabriq Bookkeeping</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary">Menu</button>
+    <nav id="primary" aria-label="Primary">
+      <div class="menu">
+        <button type="button" aria-expanded="false" aria-controls="menu-product">Product</button>
+        <div class="panel" id="menu-product" hidden>
+          <ul>
+            <li><a href="how.html#categorization">AI categorization</a></li>
+            <li><a href="how.html#capture">Document capture</a></li>
+            <li><a href="how.html#reconciliation">Agentic reconciliation</a></li>
+            <li><a href="how.html#payable">Accounts payable</a></li>
+            <li><a href="how.html#close">Agentic close</a></li>
+            <li><a href="how.html#connectors">Connectors</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu">
+        <button type="button" aria-expanded="false" aria-controls="menu-solutions">Solutions</button>
+        <div class="panel" id="menu-solutions" hidden>
+          <ul>
+            <li><a href="index.html">Businesses</a></li>
+            <li><a href="firms.html">Bookkeeping and accounting firms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu">
+        <button type="button" aria-expanded="false" aria-controls="menu-integrations">Integrations</button>
+        <div class="panel" id="menu-integrations" hidden>
+          <div class="group">
+            <p class="subhead">Ledgers</p>
+            <ul>
+              <li><a href="how.html#ledgers">QuickBooks</a></li>
+              <li><a href="how.html#ledgers">Zoho Books</a></li>
+              <li><a href="how.html#ledgers">Xero</a></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="subhead">Banks</p>
+            <ul>
+              <li><a href="how.html#banks">Plaid</a></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="subhead">Accounts payable</p>
+            <ul>
+              <li><a href="how.html#billcom">Bill.com</a></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="subhead">Accounts receivable</p>
+            <ul>
+              <li><a href="how.html#salesforce">Salesforce</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="https://books.fabriqdata.com" target="_blank" rel="noopener noreferrer">Login</a>
+      <a class="btn" href="start.html">Close my books</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <h1>Close my books.</h1>
+    <p class="lede">We read it and write back. You will not get a login.</p>
+
+    <form id="close-form" class="form" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required />
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="email">Work email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="company">Company</label>
+        <input id="company" name="company" type="text" autocomplete="organization" required />
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="who">This request is for</label>
+        <select id="who" name="who" required>
+          <option value="business">A business</option>
+          <option value="firm">A bookkeeping or accounting firm</option>
+        </select>
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="ledger">Where the books live</label>
+        <select id="ledger" name="ledger" required>
+          <option value="">Choose one</option>
+          <option>QuickBooks</option>
+          <option>Xero</option>
+          <option>Zoho Books</option>
+          <option>Something else</option>
+        </select>
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="companies">How many companies</label>
+        <select id="companies" name="companies" required>
+          <option value="">Choose one</option>
+          <option>1</option>
+          <option>2–3</option>
+          <option>More than 3</option>
+        </select>
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="behind">How far behind</label>
+        <select id="behind" name="behind" required>
+          <option value="">Choose one</option>
+          <option>This month is open</option>
+          <option>About a month</option>
+          <option>A few months</option>
+          <option>I'm not sure</option>
+        </select>
+        <p class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="messy">What is messy <span class="quiet">(optional)</span></label>
+        <textarea id="messy" name="messy"></textarea>
+        <p class="error" role="alert"></p>
+      </div>
+      <p class="note">This opens an email to hello@fabriqdata.com. We read it and write back.</p>
+      <button class="btn" type="submit">Close my books</button>
+    </form>
+  </main>
+
+  <footer class="colophon">
+    <p>Fabriq Bookkeeping and <a href="mailto:hello@fabriqdata.com">hello@fabriqdata.com</a></p>
+  </footer>
+  <script src="close.js"></script>
+</body>
+</html>
