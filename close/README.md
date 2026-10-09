@@ -125,7 +125,7 @@ Short hero, then the product picture, then a six-card grid, then one close. It i
 
 1. Headline only. Close my books stays in the nav.
 2. Product picture. The video, not a live HTML frame.
-3. “How we close the month.” AI categorization, Document capture, Agentic reconciliation, Accounts payable, Agentic close, Connectors. Multi-entity is not its own card. Review is not its own card.
+3. “How we close the month.” AI categorization, Document capture, Agentic reconciliation, Accounts payable, Agentic close, Connectors. Each card is a name, one line, and a small product screen. The screen is only the part of the work that card does. Multi-entity is not its own card. Review is not its own card. Revenue recognition is not a card.
 4. Close. “Bring the month that is open.”
 
 ## How the hero was made

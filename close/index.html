@@ -96,27 +96,73 @@
       <div class="cards">
         <article>
           <h3>AI categorization</h3>
-          <p>Spending is coded to your chart of accounts as it lands. A bookkeeper looks at anything that is not a clear match.</p>
+          <p>Spending is coded as it lands. A bookkeeper checks what is not a clear match.</p>
+          <div class="screen">
+            <ul class="screen-rows">
+              <li><span>Amazon Web Services</span><em>Software</em><b>$1,240</b></li>
+              <li><span>Google Workspace</span><em>Software</em><b>$186</b></li>
+            </ul>
+          </div>
         </article>
         <article>
           <h3>Document capture</h3>
-          <p>Invoices, bills, and statements are read from the PDF or the photo. The month does not start with retyping.</p>
+          <p>The bill is read from the PDF. The month does not start with retyping.</p>
+          <div class="screen">
+            <div class="screen-doc">
+              <p>northwind-supply.pdf</p>
+              <dl>
+                <div><dt>Vendor</dt><dd>Northwind Supply</dd></div>
+                <div><dt>Amount</dt><dd>$2,150</dd></div>
+                <div><dt>Account</dt><dd>Materials</dd></div>
+              </dl>
+            </div>
+          </div>
         </article>
         <article>
           <h3>Agentic reconciliation</h3>
-          <p>Each bank and card line is matched to the account and the document it came from. The match waits until a person approves it.</p>
+          <p>The bank line is matched to the bill. A person approves the match.</p>
+          <div class="screen">
+            <ul class="screen-rows">
+              <li><span>Chase 4521</span><em>Bill 1044</em><b>$4,280</b></li>
+              <li><span>Amex 1004</span><em class="needs">Needs a receipt</em><b>$640</b></li>
+            </ul>
+          </div>
         </article>
         <article>
           <h3>Accounts payable</h3>
-          <p>Every bill is captured, coded, and matched to the payment. What is still open stays in the month until it clears.</p>
+          <p>Open bills stay in the month until the payment clears.</p>
+          <div class="screen">
+            <ul class="screen-rows">
+              <li><span>Northwind Supply</span><em>Materials</em><b>$2,150</b></li>
+              <li><span>City Power</span><em>Due Apr 25</em><b>$418</b></li>
+            </ul>
+          </div>
         </article>
         <article>
           <h3>Agentic close</h3>
-          <p>An agent lays out the month: what to book, what to categorize, what to reconcile. A bookkeeper reviews it. You approve what hits the books.</p>
+          <p>The month is laid out. You approve what hits the books.</p>
+          <div class="screen">
+            <ul class="screen-check">
+              <li><span>Code Amazon Web Services</span><i>Approve</i></li>
+              <li><span>Match Chase 4521</span><i>Approve</i></li>
+              <li><span>Amex 1004 receipt</span><i class="needs">Needs you</i></li>
+              <li><span>City Power bill</span><i>Approve</i></li>
+            </ul>
+          </div>
         </article>
         <article>
           <h3>Connectors</h3>
-          <p>Your books stay in QuickBooks, Zoho Books, or Xero. Banks, Bill.com, and Salesforce sit beside them. We write back only what has been approved.</p>
+          <p>The books stay in your ledger. Banks, bills, and invoices sit beside them.</p>
+          <div class="screen">
+            <ul class="screen-sync">
+              <li><span>QuickBooks</span></li>
+              <li><span>Zoho Books</span></li>
+              <li><span>Xero</span></li>
+              <li><span>Plaid</span></li>
+              <li><span>Bill.com</span></li>
+              <li><span>Salesforce</span></li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
