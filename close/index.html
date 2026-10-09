@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fabriq Bookkeeping — Every month closed</title>
+  <meta name="description" content="We keep the books for companies on QuickBooks, Xero, or Zoho. AI categorization, document capture, reconciliation, and an agentic close — you approve what posts." />
+  <link rel="icon" href="../assets/images/fabriq_logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="close.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <a class="mark" href="index.html">Fabriq Bookkeeping</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary">Menu</button>
+    <nav id="primary" aria-label="Primary">
+      <div class="menu">
+        <button type="button" aria-expanded="false" aria-controls="menu-product">Product</button>
+        <div class="panel" id="menu-product" hidden>
+          <ul>
+            <li>AI categorization</li>
+            <li>Document capture</li>
+            <li>Agentic reconciliation</li>
+            <li>Accounts payable</li>
+            <li>Agentic close</li>
+            <li>Connectors</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu">
+        <button type="button" aria-expanded="false" aria-controls="menu-solutions">Solutions</button>
+        <div class="panel" id="menu-solutions" hidden>
+          <ul>
+            <li>Businesses</li>
+            <li>Bookkeeping and accounting firms</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu">
+        <button type="button" aria-expanded="false" aria-controls="menu-integrations">Integrations</button>
+        <div class="panel" id="menu-integrations" hidden>
+          <div class="group">
+            <p class="subhead">Ledgers</p>
+            <ul>
+              <li>QuickBooks</li>
+              <li>Zoho Books</li>
+              <li>Xero</li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="subhead">Banks</p>
+            <ul>
+              <li>Plaid</li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="subhead">Accounts payable</p>
+            <ul>
+              <li>Bill.com</li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="subhead">Accounts receivable</p>
+            <ul>
+              <li>Salesforce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="https://books.fabriqdata.com" target="_blank" rel="noopener noreferrer">Login</a>
+      <a class="btn" href="#start">Close my books</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>
+        <span>Every bill coded.</span>
+        <span>Every account reconciled.</span>
+        <span>Every month closed.</span>
+      </h1>
+
+      <div class="stage-wrap">
+        <video class="hero-video" autoplay muted loop playsinline poster="media/hero-poster.jpg">
+          <source src="media/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <h2>How we close the month</h2>
+      <div class="cards">
+        <article>
+          <h3>AI categorization</h3>
+          <p>Spending is coded to your chart of accounts as it lands. A bookkeeper looks at anything that is not a clear match.</p>
+        </article>
+        <article>
+          <h3>Document capture</h3>
+          <p>Invoices, bills, and statements are read from the PDF or the photo. The month does not start with retyping.</p>
+        </article>
+        <article>
+          <h3>Agentic reconciliation</h3>
+          <p>Each bank and card line is matched to the account and the document it came from. The match waits until a person approves it.</p>
+        </article>
+        <article>
+          <h3>Accounts payable</h3>
+          <p>Every bill is captured, coded, and matched to the payment. What is still open stays in the month until it clears.</p>
+        </article>
+        <article>
+          <h3>Agentic close</h3>
+          <p>An agent lays out the month: what to book, what to categorize, what to reconcile. A bookkeeper reviews it. You approve what hits the books.</p>
+        </article>
+        <article>
+          <h3>Connectors</h3>
+          <p>Your books stay in QuickBooks, Zoho Books, or Xero. Banks, Bill.com, and Salesforce sit beside them. We write back only what has been approved.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="start" id="start">
+      <h2>Bring the month that is open.</h2>
+      <p>Tell us where the books live and how far behind they are.</p>
+      <a class="btn" href="mailto:hello@fabriqdata.com?subject=Close%20my%20books">Close my books</a>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>Fabriq Bookkeeping and <a href="mailto:hello@fabriqdata.com">hello@fabriqdata.com</a></p>
+  </footer>
+  <script>
+    (function () {
+      var nav = document.getElementById("primary");
+      var toggle = document.querySelector(".nav-toggle");
+      var menus = document.querySelectorAll(".menu");
+      var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+      function setOpen(menu, open) {
+        var btn = menu.querySelector(":scope > button");
+        var panel = menu.querySelector(".panel");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        panel.hidden = !open;
+      }
+
+      function closeMenus(except) {
+        menus.forEach(function (menu) {
+          if (menu !== except) setOpen(menu, false);
+        });
+      }
+
+      function desktopHover() {
+        return fine.matches && !window.matchMedia("(max-width: 880px)").matches;
+      }
+
+      var closeTimer = 0;
+
+      menus.forEach(function (menu) {
+        var btn = menu.querySelector(":scope > button");
+        btn.addEventListener("click", function () {
+          if (desktopHover()) {
+            clearTimeout(closeTimer);
+            closeMenus(menu);
+            setOpen(menu, true);
+            return;
+          }
+          var open = btn.getAttribute("aria-expanded") === "true";
+          closeMenus(menu);
+          setOpen(menu, !open);
+        });
+        menu.addEventListener("mouseenter", function () {
+          if (!desktopHover()) return;
+          clearTimeout(closeTimer);
+          closeMenus(menu);
+          setOpen(menu, true);
+        });
+        menu.addEventListener("mouseleave", function () {
+          if (!desktopHover()) return;
+          clearTimeout(closeTimer);
+          closeTimer = setTimeout(function () { setOpen(menu, false); }, 200);
+        });
+        btn.addEventListener("focus", function () {
+          if (window.matchMedia("(max-width: 880px)").matches) return;
+          closeMenus(menu);
+          setOpen(menu, true);
+        });
+        menu.addEventListener("focusout", function (event) {
+          if (!menu.contains(event.relatedTarget)) setOpen(menu, false);
+        });
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenus();
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".menu")) closeMenus();
+      });
+
+      toggle.addEventListener("click", function () {
+        var open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", open ? "false" : "true");
+        toggle.textContent = open ? "Menu" : "Close";
+        nav.classList.toggle("is-open", !open);
+        if (open) closeMenus();
+      });
+    })();
+  </script>
+</body>
+</html>
