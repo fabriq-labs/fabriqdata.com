@@ -78,11 +78,6 @@
   var form = document.getElementById("close-form");
   if (!form) return;
 
-  var who = form.querySelector("[name=who]");
-  if (who && new URLSearchParams(window.location.search).get("for") === "firm") {
-    who.value = "firm";
-  }
-
   function setError(field, message) {
     var slot = field.querySelector(".error");
     var input = field.querySelector("input, select, textarea");
