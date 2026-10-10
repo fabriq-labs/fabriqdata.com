@@ -1,159 +1,215 @@
 # Fabriq Bookkeeping
 
-A separate marketing site for an AI-native bookkeeping firm. It lives in this folder so it does not mix with the Fabriq Data consultancy homepage at the repo root.
+The marketing site for Fabriq Bookkeeping, an AI-native bookkeeping firm. It sells the service: we keep the books and close the month for a business. It does not sell a self-serve product.
 
-Preview from the repo root:
+This folder is separate from the Fabriq Data consultancy site at the repo root. Do not mix the two. Do not link this site from the consultancy homepage, and do not reuse that site’s Bootstrap template, `assets/css/style.css`, or its Space Grotesk type.
+
+This README is the handoff for a redesign into a more professional theme. It records what the site has to say, what it must not say, how each part works, and why it is the way it is. The section [Redesign brief](#redesign-brief) lists what is free to change and what is not.
+
+## Running it
+
+Static HTML, CSS, and a little JavaScript. There is no build step and no framework.
+
+From the repo root:
 
 ```bash
 python3 -m http.server 8765
 ```
 
-Open http://127.0.0.1:8765/close/
+Then open http://127.0.0.1:8765/close/. If port 8765 is already in use, a server is probably already running. Use it rather than starting a second one.
+
+Work happens on the `close-site` branch. History on that branch, oldest first:
+
+- `e44808f` Add the Fabriq Bookkeeping site in its own folder.
+- `2595592` Show each close step as a short card with a product screen.
+- `b483d27` Add the how, firms, and Close my books pages.
+- `f2880d8` Drop the how and firms pages and keep menu items as names.
+
+## Files
+
+| File | Public | What it is |
+| --- | --- | --- |
+| `index.html` | Yes | The homepage. |
+| `start.html` | Yes | The Close my books form. |
+| `close.css` | — | All styles for both pages. |
+| `close.js` | — | Nav menus, the mobile menu, and the form. Loaded by both pages. |
+| `media/hero.mp4` | — | The hero picture. Silent loop, 1418×578, H.264, about 10 seconds, about 400KB. |
+| `media/hero-poster.jpg` | — | Frame 0 of `hero.mp4`. Paints before the video arrives. |
+| `capture.html` | No | The live HTML product frame that `hero.mp4` was recorded from. Never linked. |
+| `tools/record-hero.mjs` | No | The Playwright script that records `capture.html`. |
+
+Two pages only. There is no How it works page, no firms page, and no page per menu item. That was tried and removed on purpose (`f2880d8`). Do not add them back unless asked.
+
+The favicon is `../assets/images/fabriq_logo.png`, shared with the repo root.
 
 ## Who it is for
 
-The buyer of the main site is the business owner. Bookkeeping and accounting firms are a Solutions item, not a hidden URL. The homepage itself stays written to the owner.
+The buyer is the owner of a business that already runs on QuickBooks, Xero, or Zoho Books. Every line on the homepage is written to that person.
 
-Full service is the hero. The product is not self-serve. It is beta, worked 1:1. The path where the customer’s own team runs the platform stays off the homepage. There is no published price. Conceptually there are two ways to work, but the start form is full-service only.
+Bookkeeping and accounting firms are a second audience. They appear as an item under Solutions, and as a choice on the form. They do not get their own page, and the homepage is not rewritten for them.
 
-Accounts payable is in scope as bookkeeping work: bills captured, coded, and matched to payments. It is not Bill.com sync, payment runs, or 1099s.
+What is being sold:
+
+- Full service. We do the bookkeeping and close the month. A person approves before anything is written back to the ledger.
+- It is in beta and worked 1:1 with each customer. It is not self-serve.
+- There is no published price, and no plan or tier table.
+- The path where a customer’s own team runs the platform exists, but it stays off this site.
+
+Accounts payable is in scope as bookkeeping work: bills captured, coded, and matched to their payments. It is not a bill-pay product. There are no payment runs here, and no 1099s.
+
+Never on these pages: payroll, sales tax filing, 1099s, the tax return, prices, free trials, or self-serve signup.
+
+## What the product does
+
+Use these facts. Do not add capabilities that are not on this list.
+
+Connected and available on this site:
+
+- Ledgers: QuickBooks, Zoho Books, Xero. The books stay in the customer’s ledger. Approved changes are written back to it.
+- Banks: account feeds through Plaid.
+- Accounts payable: Bill.com.
+- Accounts receivable: Salesforce.
+
+Treat Bill.com and Salesforce as available. The repo-root page `accounts.html` still lists them as roadmap. On this site they are available, by the owner’s decision.
+
+Later, and not on this site as available: Sage, and full intercompany elimination.
+
+The work itself, which is the six homepage cards:
+
+1. AI categorization. Spending is coded to the chart of accounts as it lands. A bookkeeper checks what is not a clear match.
+2. Document capture. Invoices, bills, and statements are read from the PDF or photo.
+3. Agentic reconciliation. Each bank and card line is matched to the account and the document. A person approves the match.
+4. Accounts payable. Bills are captured, coded, and matched to the payment. Open bills stay in the month until they clear.
+5. Agentic close. An agent lays out the month. A bookkeeper reviews it. The customer approves what hits the books.
+6. Connectors. The books stay in the ledger. Banks, bills, and invoices sit beside them. Only approved changes are written back.
+
+The rule running through all six: nothing posts to the books until a person approves it. Keep that true in any rewrite.
+
+The platform also does multi-entity, FX, and a group HQ view (per `accounts.html`). Those are real, but they are not their own homepage cards. Revenue recognition is not something this service does. Do not add a card for it.
 
 ## Voice
 
-Short commercial cadence, in the manner of Webgility. Limits are stated the way `accounts.html` states them: named ledgers, a person signs, and a line between what is live and what is later.
+Short commercial sentences, in the cadence of Webgility’s homepage. Plain verbs. One idea per line. Talk about the customer’s month, not about the product’s architecture.
 
-Do not use “autopilot,” “Start free,” “intelligence layer,” or “Agentic FinOps.” Do not invent social proof. Do not take voice or prices from `books.html`. That page is an older consumer draft.
+Limits are stated plainly, the way `accounts.html` states them: name the ledgers, say a person approves, and keep what is available apart from what is later.
 
-Headline, kept:
+Do not use:
 
-> Every bill coded.  
-> Every account reconciled.  
+- “Autopilot”
+- “Start free,” “Get started free,” or any trial language
+- “Intelligence layer”
+- “Agentic FinOps”
+- Invented logos, testimonials, customer counts, ratings, or “trusted by” rows
+- Anything from `books.html` at the repo root. That is an older consumer draft with $0 and $29 pricing. Its voice and prices are wrong for this site.
+
+The button is always “Close my books.” Keep that exact label everywhere it appears, including the form’s submit button.
+
+## Copy, verbatim
+
+This is every customer-facing string on the two pages. A redesign can restyle all of it. Rewording should be a deliberate choice, not a side effect of a template.
+
+### Shared
+
+- Wordmark: Fabriq Bookkeeping
+- Nav: Product · Solutions · Integrations · Login · Close my books
+- Footer: Fabriq Bookkeeping and hello@fabriqdata.com
+- Skip link: Skip to content
+- Page titles: “Fabriq Bookkeeping — Every month closed” on the homepage, “Close my books — Fabriq Bookkeeping” on the form
+
+### Menus
+
+Product:
+
+- AI categorization
+- Document capture
+- Agentic reconciliation
+- Accounts payable
+- Agentic close
+- Connectors
+
+Solutions:
+
+- Businesses
+- Bookkeeping and accounting firms
+
+Integrations, as headings with items under them:
+
+- Ledgers: QuickBooks, Zoho Books, Xero
+- Banks: Plaid
+- Accounts payable: Bill.com
+- Accounts receivable: Salesforce
+
+### Homepage (`index.html`)
+
+Hero headline, three lines:
+
+> Every bill coded.
+> Every account reconciled.
 > Every month closed.
 
-The sentence “We keep the books for companies that already run on QuickBooks, Xero, or Zoho. You stay in the business. We stay in the books.” is not on the hero. Close my books lives in the nav and at the bottom of the page.
+There is no lede and no button beside the headline. That was removed on purpose: Close my books is already in the nav. Do not put the old lede back (“We keep the books for companies that already run on QuickBooks, Xero, or Zoho. You stay in the business. We stay in the books.”) unless asked.
 
-## Inspirations
+Under the headline: the hero video.
 
-Two public sites were the references. Neither was copied. Pricing, scope, and claims stay ours.
+Cards section heading: How we close the month
 
-### Webgility
-
-- https://www.webgility.com/
-- https://www.webgility.com/pricing
-
-Taken: the short commercial cadence, a homepage that is a hero plus a crisp multi-card feature grid, and floating highlight cards sitting on top of a product picture (their cards include a payout, “P&L report ready,” and a QuickBooks connection). Their hero picture is a static image, which is why this site does not ship a live HTML frame as the finished hero.
-
-Not taken: the Core Platform / Full Service price toggle, or any of the published prices (platform tiers and full service from $649). Their full service includes payroll, sales tax, and 1099s. Ours does not. Both of our ways of working end in a conversation, so a price toggle does not belong on the page. “Start free” and similar self-serve language do not belong either.
-
-### Rillet
-
-- https://www.rillet.com/
-
-Taken: a product picture that reads as the close in progress. Inside that picture: a chat field, current-period metrics, lines that need a person, and pinned reports. Their hero is a silent looping video. The still has to be on screen before that file arrives. Webflow paints frame 0 (`home hero video compressed_poster.0000000.jpg`) as a CSS `background-image` on the `<video>`, then plays an MP4 and a WebM (`home hero video compressed_mp4.mp4`, `home hero video compressed_webm.webm`). This site meets that requirement with `poster="media/hero-poster.jpg"` on the video, then `media/hero.mp4`. The poster is frame 0 of the same clip.
-
-Not taken: their arrangement of headline on the left and lede plus button on the right. This hero is the headline alone. Close my books stays in the nav and at the bottom of the page. Their metrics (cash, ARR, runway) and their headline are not used. The picture here is a business’s open month — cash, revenue, expenses, net income, receivable, payable — not a SaaS scoreboard.
-
-## What is live, and what the picture may still show
-
-Live, per `accounts.html`: QuickBooks, Xero, Zoho; PDF and image extraction; categorization and reconciliation with a review inbox; workbench agents; multi-entity, FX, and an HQ view; approved write-back.
-
-Available on this site: QuickBooks, Zoho Books, Xero, bank accounts through Plaid, Bill.com, and Salesforce. Treat Bill.com and Salesforce as available even where `accounts.html` still lists them as roadmap.
-
-Later: Sage, and full intercompany elimination.
-
-The homepage picture shows QuickBooks, Salesforce, and Bill.com as recently synced. The times are illustrative. The Integrations menu names each system under the job it does.
-
-## Visual system
-
-Marketing chrome: paper `#f4f6f5`, pine button `#1b4f38`, Newsreader headlines, Atkinson Hyperlegible body.
-
-The product frame uses the product UI, not the marketing type. Purple `#7028a0`, Lato, and Poppins come from the bookkeeping app in `/Users/prasannaj/dev/fabriq-books/fabriq-ws-setup` (`frontend-1`). The real dashboard was not copied. It was too dense. The frame is a cleaned period view: chat field, current-period metrics, approval lines, pinned reports, and three floating highlight cards.
-
-Period numbers are a business’s current month (cash, revenue, expenses, net income, receivable, payable), dollarized from the app’s period snapshot. They are not task counts and not a fake ARR.
-
-## Pages
-
-| File | Status | Role |
+| Card | Line | Screen inside the card |
 | --- | --- | --- |
-| `index.html` | Built | Home. |
-| `capture.html` | Source for the hero, not a public page | The live HTML product frame. Not linked from the nav. |
-| `close.css` | Built | Shared styles. |
-| `close.js` | Built | Menus, and the Close my books email. |
-| `media/hero.mp4` | Built | Silent looping hero, about 10 seconds, no audio. |
-| `media/hero-poster.jpg` | Built | Frame 0. Shows before the video paints. |
-| `start.html` | Built | Close my books. Writes an email to hello@fabriqdata.com. |
+| AI categorization | Spending is coded as it lands. A bookkeeper checks what is not a clear match. | Amazon Web Services · Software · $1,240; Google Workspace · Software · $186 |
+| Document capture | The bill is read from the PDF. The month does not start with retyping. | `northwind-supply.pdf` with Vendor Northwind Supply, Amount $2,150, Account Materials |
+| Agentic reconciliation | The bank line is matched to the bill. A person approves the match. | Chase 4521 · Bill 1044 · $4,280; Amex 1004 · Needs a receipt · $640 |
+| Accounts payable | Open bills stay in the month until the payment clears. | Northwind Supply · Materials · $2,150; City Power · Due Apr 25 · $418 |
+| Agentic close | The month is laid out. You approve what hits the books. | Code Amazon Web Services · Approve; Match Chase 4521 · Approve; Amex 1004 receipt · Needs you; City Power bill · Approve |
+| Connectors | The books stay in your ledger. Banks, bills, and invoices sit beside them. | QuickBooks, Zoho Books, Xero, Plaid, Bill.com, Salesforce, each with a green dot |
 
-There is no How it works page and no firms page. Menu items are names, not links to their own pages.
+Closing section:
 
-## Nav
+- Heading: Bring the month that is open.
+- Line: Tell us where the books live and how far behind they are.
+- Button: Close my books
 
-Wordmark, then Product, Solutions, Integrations, Login, and the Close my books button. Footer stays the name and hello@fabriqdata.com.
+The meta description still says “QuickBooks, Xero, or Zoho … you approve what posts.” It is fine to tighten it.
 
-Product lists the six homepage cards by name, in regular weight, without links.
+### Form (`start.html`)
 
-Solutions lists Businesses, and Bookkeeping and accounting firms, by name without links. The homepage itself stays written to the business owner.
+- Heading: Close my books.
+- Line: We read it and write back. You will not get a login.
+- Note above the button: This opens an email to hello@fabriqdata.com. We read it and write back.
+- Submit: Close my books
 
-Integrations uses a bold heading and regular items, with no extra line under a name and no links:
+| Label | Field | Required | Options |
+| --- | --- | --- | --- |
+| Name | text, `autocomplete=name` | Yes | |
+| Work email | email, `autocomplete=email` | Yes | |
+| Company | text, `autocomplete=organization` | Yes | |
+| This request is for | select | Yes | A business (default) · A bookkeeping or accounting firm |
+| Where the books live | select | Yes | Choose one · QuickBooks · Xero · Zoho Books · Something else |
+| How many companies | select | Yes | Choose one · 1 · 2–3 · More than 3 |
+| How far behind | select | Yes | Choose one · This month is open · About a month · A few months · I’m not sure |
+| What is messy (optional) | textarea | No | |
 
-- Ledgers — QuickBooks, Zoho Books, Xero.
-- Banks — Plaid.
-- Accounts payable — Bill.com.
-- Accounts receivable — Salesforce.
+Errors appear under the field: “Add this.” for an empty text field, “Choose one.” for an empty select, “Use a work email we can reply to.” for an invalid email.
 
-Sage stays off this menu until it is asked for. Login is a text link to https://books.fabriqdata.com in a new tab. Close my books goes to `start.html` and stays the only filled button.
+## How the pieces behave
 
-The list has to stay open while the pointer moves from the label onto an item. The panel touches the label, so there is no gap for the pointer to fall through, and the list waits a moment before it closes. On a narrow screen the same lists sit behind Menu.
+### Nav and menus (`close.js`)
 
-### Start (`start.html`)
+- Product, Solutions, and Integrations are buttons with `aria-expanded` and `aria-controls`. Each opens a panel. The items inside are plain names, not links.
+- With a mouse, a panel opens on hover. The panel sits flush against its label, so the pointer can move from the label onto the items without the panel closing. When the pointer leaves, the panel waits 200ms before it closes. This was a reported bug and must not come back.
+- Clicking a label opens it. Focusing a label with the keyboard opens it. Tabbing out closes it. Escape closes all panels. Clicking anywhere else closes them.
+- Below 880px, the nav collapses behind a Menu button, which becomes Close when open. The panels then expand inline, one at a time, on tap.
+- Inside a panel, headings are bold and items are regular weight. There is no description line under any item. Both were explicit requests.
+- Login is a plain text link to https://books.fabriqdata.com, opened in a new tab with `rel="noopener noreferrer"`.
+- Close my books is the only filled button in the nav. It goes to `start.html`.
 
-Fields: name, work email, company; whether the request is for a business or a firm; ledger (QuickBooks, Xero, Zoho Books, or else); companies (1, 2–3, or more); how far behind; optional note on what is messy. Submit opens an email to hello@fabriqdata.com until a form service exists. Copy on the page: “We read it and write back. You will not get a login.”
+### Form (`close.js`)
 
-### Left off the owner pages
+- The form uses `novalidate` and its own checks, so errors read in the site’s voice.
+- On submit with missing fields, every empty required field gets its message and `aria-invalid="true"`, and focus moves to the first problem.
+- With everything filled, it builds an email and opens `mailto:hello@fabriqdata.com` with the subject “Close my books.” The body lists every answer, one per line, with the optional note last.
+- There is no form backend yet. When one exists, replace the mailto step and keep the fields, labels, errors, and the “We read it and write back” promise.
 
-Payroll, sales tax filing, 1099s, the tax return, prices, and self-serve signup.
-
-## Homepage shape
-
-Short hero, then the product picture, then a six-card grid, then one close. It is not a long vertical document.
-
-1. Headline only. Close my books stays in the nav.
-2. Product picture. The video, not a live HTML frame.
-3. “How we close the month.” AI categorization, Document capture, Agentic reconciliation, Accounts payable, Agentic close, Connectors. Each card is a name, one line, and a small product screen. The screen is only the part of the work that card does. Multi-entity is not its own card. Review is not its own card. Revenue recognition is not a card.
-4. Close. “Bring the month that is open.”
-
-## How the hero was made
-
-Rillet’s hero is a silent looping video (MP4 and WebM) with a JPEG of frame 0 painted first, as a background on the video element. Webgility’s hero is a static product image with floating cards. Neither ships a live HTML mock as the finished picture. This site followed that: HTML while the content was still moving, then a recording once the frame settled.
-
-Image models were not used. They smear UI text.
-
-### The HTML that was recorded
-
-`capture.html` is a copy of the homepage from before the swap. Its product stage is real HTML and CSS, plus a small typing script. That file is the source of the picture. `index.html` no longer contains the frame. It only plays the video.
-
-What is inside the stage:
-
-- Sync row: QuickBooks 12 min ago, Salesforce 26 min ago, Bill.com 1 hr ago.
-- Ask field. The script rewrites `#ask-text`: add a character every 48ms, hold 1600ms, delete every 28ms. The caret is a CSS blink. `prefers-reduced-motion` leaves the first question. The lines are “What’s still open this month?”, “Which bills still need a match?”, “What’s our cash position?”, and “What needs my approval?”
-- Chips: Unmatched lines, Open bills, What needs me.
-- Period: “March, compared with February.”
-- Metrics: Cash $556,400 / 3 accounts; Revenue $128,400, +8.4%; Expenses $91,200, −3.1%; Net income $37,200; Receivable $34,850 / 14 invoices; Payable $18,720 / 9 bills.
-- Waiting for approval: AWS, Google Workspace, Chase 4521, Amex 1004 (needs a receipt), Northwind, City Power.
-- Pinned reports: P&L, Balance sheet, Cash flow, AP aging.
-- Floating cards in the lavender gutter: March revenue / expenses / net, Last sync, and “March P&L ready.”
-
-### The recording
-
-Playwright, using the system Chrome channel (Playwright’s own Chromium was not installed; `channel: 'chrome'` was required, and Playwright’s ffmpeg had to be installed before `recordVideo` would run). Viewport 1600×1100. The script hid the header, the headline row, the card section, the close section, the footer, and the skip link, and held the stage at 1440px wide for about 11 seconds so the typing was in the take.
-
-The raw file was a 1600×1100 VP8 WebM. The lavender panel did not fill that viewport: page background sat on the sides, and a gray band sat under the stage. The shipped crop is the panel only, `1418×578` at `x=82, y=26` of that recording.
-
-ffmpeg then wrote:
-
-- `media/hero.mp4` — H.264, no audio, about 10 seconds, faststart.
-- `media/hero-poster.jpg` — the first frame of that clip.
-
-`index.html` plays it like this:
+### Hero video
 
 ```html
 <video class="hero-video" autoplay muted loop playsinline poster="media/hero-poster.jpg">
@@ -161,10 +217,196 @@ ffmpeg then wrote:
 </video>
 ```
 
-The poster is the background requirement: it paints before `hero.mp4` has downloaded, the same job as Rillet’s frame-0 JPEG. Headline, cards, and the close stay HTML so they can change without a new recording. The product picture cannot.
+`muted` and `playsinline` are required for autoplay on phones. The poster is required too: the still has to be on screen before the video has downloaded. The poster is frame 0 of the same clip, so there is no jump when playback starts.
 
-The loop restarts mid-sentence. That is the screen recording, not a designed in-and-out. A later cut can land on a full question.
+### Accessibility already in place
 
-### Recording again
+- A skip link to `#main`.
+- A visible pine focus outline on every control.
+- Real labels on every field, `role="alert"` on error slots, and `aria-invalid` on fields with errors.
+- Menu state exposed through `aria-expanded`. Panels use the `hidden` attribute.
+- `prefers-reduced-motion` turns off smooth scrolling and the caret blink.
 
-Change `capture.html`, serve the repo, record only the product stage, crop to the lavender panel, and replace `media/hero.mp4` and `media/hero-poster.jpg`. Do not put `capture.html` in the nav.
+A redesign should keep all of this.
+
+## Visual system today
+
+### Marketing chrome
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--paper` | `#f4f6f5` | Page background |
+| `--sheet` | `#ffffff` | Cards and panels |
+| `--ink` | `#17211e` | Text |
+| `--muted` | `#3e5149` | Secondary text |
+| `--rule` | `#d5ddd8` | Borders and dividers |
+| `--pine` | `#1b4f38` | The Close my books button and focus ring |
+| `--pine-ink` | `#143c2b` | Button hover and links |
+
+Type: Newsreader for headlines and the wordmark, Atkinson Hyperlegible for body text. Both come from Google Fonts. Content width is `min(72rem, 100% − 2.5rem)`. Buttons have a 2px radius. Cards and panels have an 8px radius and a 1px rule border.
+
+Breakpoints: 1100px, 960px (cards go to two columns), 880px (nav collapses), 760px, and 640px (cards go to one column).
+
+The owner has asked for a more professional theme. These tokens are a starting point, not a requirement.
+
+### Product UI inside the picture and the card screens
+
+The hero video and the small screens in the cards show the product, so they use the product app’s look, not the marketing type:
+
+- Purple `#7028a0` for actions such as Approve
+- Lato for screen text, Poppins for figures in the hero frame
+- A lavender stage, `#f4eef8` in the hero and `#f3f0f6` behind the card screens
+- Brick `#8a3a32` for “Needs you” and “Needs a receipt”
+- Green `#1f8a4c` for a connected-system dot
+
+These come from the product repo at `/Users/prasannaj/dev/fabriq-books/fabriq-ws-setup`, in `frontend-1` (`tailwind.config.ts`, `src/index.css`). Its primary color is `#7028a0`. The real product dashboard was deliberately not copied. The owner called it too messy. The pictures here are a cleaned-up period view.
+
+Keep the product pictures visibly “product” and the page around them visibly “marketing.” Do not restyle the card screens into the marketing palette.
+
+## The homepage shape
+
+The owner rejected a long, vertical, document-style page. The homepage is four parts, in this order:
+
+1. The headline alone.
+2. The product picture: the hero video, full content width.
+3. How we close the month: a 3×2 grid of six cards. Each card is a name, one short line, and a small product screen showing only that card’s work.
+4. One closing section and the Close my books button.
+
+Then the footer.
+
+## References
+
+Two public sites shaped the direction. Neither was copied. Prices, scope, and claims are ours.
+
+### Rillet — https://www.rillet.com/
+
+The main reference for finish and layout.
+
+Taken:
+
+- A hero that is a product picture showing the close in progress: a chat field, the current period’s numbers, the lines waiting on a person, and pinned reports.
+- That picture as a silent looping video with a frame-0 still. Rillet’s Webflow site paints `home hero video compressed_poster.0000000.jpg` as a CSS background on the `<video>`, then plays `home hero video compressed_mp4.mp4` or `…_webm.webm`. This site does the same job with the `poster` attribute.
+- Feature cards that are a name, a short line, and a product screen. The owner pointed at three of Rillet’s homepage cards in particular. “Perpetual general ledger” shows balances plus connected systems. “Advanced revenue recognition” shows a revenue waterfall and deferred revenue. “Close management” shows a checklist of close tasks with assignees and checks. The six cards here borrow that shape.
+- A Product menu that lists the features by name. Rillet’s groups features under “Core features” and “Advanced features.” With six items, this site does not need groups.
+
+Not taken:
+
+- Rillet’s headline-left, lede-and-button-right hero. Here the headline stands alone.
+- Their metrics (ARR, runway) and their headline. The numbers here are one business’s open month.
+- Revenue recognition as a feature.
+- Rillet’s Solutions menu groups by role, company size, and competitor. Here it is two plain items.
+
+### Webgility — https://www.webgility.com/ and https://www.webgility.com/pricing
+
+Taken:
+
+- The short commercial cadence of the copy.
+- A homepage that is a hero, then a crisp grid of feature cards.
+- Small floating highlight cards over the product picture. Webgility’s show a payout, “P&L report ready,” and a QuickBooks connection. The hero recording has three: March revenue, expenses, and net; Last sync; and “March P&L ready.”
+- A static or recorded product picture rather than a live mock.
+
+Not taken:
+
+- The Core Platform / Full Service price toggle, and every price on that page (platform tiers, and full service from $649). Both ways of working here end in a conversation.
+- Their full-service scope, which includes payroll, sales tax, and 1099s. This service does not.
+- “Start free” and other self-serve language.
+
+### Inside the repo
+
+- `../accounts.html` and `../assets/css/accounts.css`: the firm-facing product brief. It is the source for what is live, and for the plain way limits are stated. It is not this site’s voice.
+- `../books.html`: the older consumer draft. Do not use it.
+- `../index.html` and `../README.md`: the consultancy site. Separate. Do not touch.
+
+## How the hero was made
+
+Rillet and Webgility both ship the hero as a recorded or static picture, not as a live HTML mock. This site followed that: the frame was built in HTML while the numbers and lines were still changing, then recorded once it settled. Image-generation models were not used, because they blur UI text.
+
+### The source: `capture.html`
+
+`capture.html` is a copy of an earlier homepage that still contains the live product frame. Its header and lower sections are older than the current homepage. That does not matter, because the recorder hides everything except the product stage. Edit only the stage.
+
+What is inside the stage:
+
+- A sync row: QuickBooks 12 min ago, Salesforce 26 min ago, Bill.com 1 hr ago. The times are illustrative.
+- An ask field where questions type themselves. A script rewrites `#ask-text`: one character every 48ms, a 1600ms hold, then deletion at 28ms a character. The questions are “What’s still open this month?”, “Which bills still need a match?”, “What’s our cash position?”, and “What needs my approval?” The caret is a CSS blink. Under reduced motion it stays on the first question.
+- Chips: Unmatched lines, Open bills, What needs me.
+- The period: March, compared with February.
+- Six metrics: Cash $556,400 (3 bank accounts); Revenue $128,400 (+8.4% vs last month); Expenses $91,200 (−3.1% vs last month); Net income $37,200 (this month); Receivable $34,850 (14 open invoices); Payable $18,720 (9 open bills). These are a business’s current period, dollarized from the product’s own period snapshot. They are not task counts and not an ARR.
+- Waiting for approval, dated Apr 19 to Apr 22: Amazon Web Services (Categorize, $1,240), Google Workspace (Categorize, $186), Chase 4521 matched to bill 1044 (Reconcile, $4,280), Amex 1004 with no receipt on file (Reconcile, $640, Needs you), Northwind Supply materials (Bill, $2,150), City Power due Apr 25 (Bill, $418).
+- Pinned reports: Profit and loss, Balance sheet, Cash flow, AP aging.
+- Three floating cards in the lavender margin: March revenue, expenses, and net; Last sync; and March P&L ready.
+
+The homepage card screens reuse these same vendors and amounts, so the picture and the cards describe the same month. Keep them consistent if either changes.
+
+### Recording
+
+`tools/record-hero.mjs` opens `capture.html` in headless system Chrome through Playwright, at a 1600×1100 viewport. It hides everything but the product stage, holds the stage at 1440px wide, records for about 11 seconds, and prints the path of the raw WebM.
+
+```bash
+cd /Users/prasannaj/dev/fabriqdata.com
+python3 -m http.server 8765 &   # skip if it is already running
+npx playwright install ffmpeg   # once; recordVideo fails without it
+node close/tools/record-hero.mjs
+```
+
+Notes from the first take:
+
+- Playwright’s bundled Chromium was not installed and could not be downloaded, so the script uses `channel: 'chrome'`, the installed Google Chrome.
+- Playwright is loaded from the product repo’s `frontend-1/node_modules`. Set `PLAYWRIGHT_FROM` to another `package.json` path to use a different install.
+- Recording does not work inside a restricted sandbox. Chrome aborts. Run it with normal permissions.
+
+### Crop and encode
+
+The raw clip is a 1600×1100 VP8 WebM. The lavender panel does not fill it: there is page background on both sides and a gray band underneath. The shipped crop is the panel alone, 1418×578 at x=82, y=26. If the stage size changes, measure again from a frame.
+
+```bash
+RAW=/tmp/hero-raw/<file>.webm
+ffmpeg -y -ss 0.4 -t 10.2 -i "$RAW" -vf "crop=1418:578:82:26" -an \
+  -c:v libx264 -pix_fmt yuv420p -crf 20 -movflags +faststart close/media/hero.mp4
+ffmpeg -y -ss 0.4 -i "$RAW" -vf "crop=1418:578:82:26" -frames:v 1 -update 1 \
+  close/media/hero-poster.jpg
+```
+
+Trimming 0.4 seconds from the start skips the blank first frames. `-an` drops audio. `+faststart` lets the video start before it has fully downloaded. The poster comes from the same moment as the clip’s first frame.
+
+Known issues:
+
+- The loop restarts mid-question. A better cut would begin and end on an empty ask field.
+- There is MP4 only. Rillet also ships WebM. A WebM source would be a small win.
+- On a phone, the 1418-wide picture shrinks until the text is very small. A taller crop for small screens, or a still with less on it, would read better.
+
+## Redesign brief
+
+The owner wants a more professional theme, at Rillet’s level of finish. There is no Rillet theme to install. Rillet is a custom Webflow site. Webflow, Framer, and Tailwind template kits can be used for reference, but none of them should replace the content, the claims, or the structure below.
+
+Free to change:
+
+- Color, type, spacing, radius, borders, and shadows, including the paper and pine palette and the Newsreader and Atkinson pairing.
+- The look of the nav, the menu panels, the cards, the closing section, the footer, and the form.
+- The card screens’ styling, within the product look (see Visual system).
+- Adding a logo mark next to the wordmark, if one is provided.
+- Moving to a framework or build step, if there is a reason. The site is small enough that plain HTML and CSS still work.
+
+Keep:
+
+- Two pages: the homepage and `start.html`. No new pages for menu items.
+- The homepage order: headline, product picture, six cards, one close.
+- The headline and every claim in [What the product does](#what-the-product-does). Nothing that implies prices, trials, self-serve signup, payroll, tax, or 1099s.
+- The nav items in that order, the menu contents, plain names in the menus, bold headings with regular items, and no description lines.
+- Menus that stay open while the pointer moves onto them.
+- Login opening books.fabriqdata.com in a new tab.
+- The single filled button, Close my books, everywhere.
+- The hero as a recorded, muted, looping video with a frame-0 poster. Not a live HTML mock and not a generated image.
+- The form’s fields, the business-or-firm choice, the error messages, and the email handoff until a backend exists.
+- The accessibility listed above.
+- This site separate from the consultancy site at the repo root.
+
+If the redesign changes the product stage’s look or size, re-record the hero with `tools/record-hero.mjs` rather than editing the video file.
+
+## Open items
+
+- A real form backend. The form currently opens an email.
+- A better loop cut, a WebM source, and a phone-sized hero.
+- The meta description could be tightened to match the current copy.
+- There is no analytics. The consultancy site and `accounts.html` use PostHog. Whether this site should is undecided.
+- Nothing has been pushed. The `close-site` branch was cut from a local `master` that is one commit ahead of `origin/master`.

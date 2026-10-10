@@ -665,6 +665,11 @@ h1 span { display: block; }
   font-size: 0.92rem;
 }
 
+.form .note {
+  margin: 0;
+  color: var(--muted);
+}
+
 .quiet { font-weight: 400; color: var(--muted); }
 
 .colophon {
