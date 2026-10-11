@@ -104,12 +104,21 @@ a:hover { color: var(--purple-700); }
 
 .mark {
   align-self: center;
-  font-family: var(--font-head);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: "Source Serif 4", Palatino, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 16, "wght" 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
   color: var(--ink);
   text-decoration: none;
+}
+
+.mark em {
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 16, "wght" 500;
 }
 
 .mark:hover { color: var(--ink); }
@@ -287,16 +296,76 @@ h1 span { display: block; }
 .hero-frame {
   margin-top: 4rem;
   overflow: hidden;
-  background: var(--lavender);
-  border: 1px solid var(--lavender-rule);
+  background: #fff;
+  border: 1px solid var(--rule);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
 }
 
+/* The recording includes a lavender margin and the highlight cards.
+   Show only the product, 170,24 to 1264,552 of the 1418×578 frame. */
+.hero-crop {
+  position: relative;
+  aspect-ratio: 1094 / 528;
+  overflow: hidden;
+}
+
 .hero-video {
-  display: block;
-  width: 100%;
+  position: absolute;
+  left: calc(100% * -170 / 1094);
+  top: calc(100% * -24 / 528);
+  width: calc(100% * 1418 / 1094);
+  max-width: none;
   height: auto;
+}
+
+.hero-float {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  background: var(--lavender);
+  border: 1px solid #d4c4e2;
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 0 0 1px rgba(112, 40, 160, 0.06),
+    0 2px 4px rgba(43, 12, 63, 0.06),
+    0 14px 28px -8px rgba(43, 12, 63, 0.32);
+  padding: 0.75rem 0.875rem;
+  font-family: Lato, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #3a3348;
+}
+
+.hero-float p {
+  margin: 0 0 0.35rem;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--purple-900);
+}
+
+.hero-float ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-float li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.12rem 0;
+}
+
+.hero-float-net { left: 1.5rem; top: 1.5rem; }
+.hero-float-sync { right: 1.5rem; top: 1.5rem; }
+.hero-float-ready {
+  left: 1.5rem;
+  bottom: 1.5rem;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  color: var(--purple-700);
 }
 
 /* How we close the month */
@@ -510,14 +579,69 @@ h2 {
 /* Footer */
 
 .colophon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
   margin-top: 6rem;
-  padding: 2rem 0 3rem;
+  padding: 1.25rem 0 2rem;
   border-top: 1px solid var(--rule);
   color: var(--muted);
   font-size: 0.875rem;
 }
 
-.colophon p { margin: 0; }
+.colophon .mark { font-size: 1.25rem; }
+
+.colophon-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.colophon a:not(.mark) {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.colophon a:not(.mark):hover { color: var(--purple); }
+
+.colophon svg { display: block; }
+
+.legal {
+  width: min(40rem, calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+  padding: 5.5rem 0 0;
+}
+
+.legal h1 {
+  font-size: clamp(2rem, 1.2rem + 2vw, 2.75rem);
+}
+
+.legal .updated {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.legal h2 {
+  margin: 2.25rem 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.legal p,
+.legal li {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.legal ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.legal li + li { margin-top: 0.35rem; }
 
 /* Close my books form */
 
@@ -966,7 +1090,8 @@ h2 {
     font-size: 1rem;
   }
 
-  .page { padding-top: 3.5rem; }
+  .page,
+  .legal { padding-top: 3.5rem; }
 
   .form { margin-top: 2.25rem; }
 }
@@ -993,10 +1118,24 @@ h2 {
 
   .cards article > p { max-width: none; }
 
-  .hero-video {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: 50% 0;
+  .hero-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .hero-crop { border-radius: var(--radius-md); }
+
+  .hero-float,
+  .hero-float-net,
+  .hero-float-sync,
+  .hero-float-ready {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    top: auto;
   }
 
   .form { padding: 1.5rem 1.25rem; }

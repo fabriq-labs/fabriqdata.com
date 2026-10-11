@@ -33,6 +33,8 @@ The `close-theme` branch, cut from `5b731d5`, moves the site to the product app�
 | --- | --- | --- |
 | `index.html` | Yes | The homepage. |
 | `start.html` | Yes | The Close my books form. |
+| `privacy.html` | Yes | The privacy policy. |
+| `terms.html` | Yes | The terms. |
 | `close.css` | — | All styles for both pages. |
 | `close.js` | — | Nav menus, the mobile menu, and the form. Loaded by both pages. |
 | `media/hero.mp4` | — | The hero picture. Silent loop, 1418×578, H.264, about 10 seconds, about 400KB. |
@@ -40,7 +42,7 @@ The `close-theme` branch, cut from `5b731d5`, moves the site to the product app�
 | `capture.html` | No | The live HTML product frame that `hero.mp4` was recorded from. Never linked. |
 | `tools/record-hero.mjs` | No | The Playwright script that records `capture.html`. |
 
-Two pages only. There is no How it works page, no firms page, and no page per menu item. That was tried and removed on purpose (`f2880d8`). Do not add them back unless asked.
+The marketing pages are the homepage and `start.html`, plus `privacy.html` and `terms.html`. There is no How it works page, no firms page, and no page per menu item. That was tried and removed on purpose (`f2880d8`). Do not add them back unless asked.
 
 The favicon is `../assets/images/fabriq_logo.png`, shared with the repo root.
 
@@ -112,9 +114,9 @@ This is every customer-facing string on the two pages. A redesign can restyle al
 
 ### Shared
 
-- Wordmark: Fabriq Bookkeeping
+- Wordmark: fabriq *books* (lowercase, “books” in italic)
 - Nav: Product · Solutions · Integrations · Login · Close my books
-- Footer: Fabriq Bookkeeping and hello@fabriqdata.com
+- Footer: the wordmark, © 2026 fabriq labs, Inc., Privacy Policy, Terms, and LinkedIn
 - Skip link: Skip to content
 - Page titles: “Fabriq Bookkeeping — Every month closed” on the homepage, “Close my books — Fabriq Bookkeeping” on the form
 
@@ -259,7 +261,7 @@ Radii follow the app’s `--radius: 0.5rem`: `--radius-sm` 4px for pills, `--rad
 
 ### Type
 
-Poppins (500 and 600) for headings, the wordmark, and figures. Lato (400 and 700) for body text, nav, and buttons. Both are loaded from Google Fonts.
+Poppins (500 and 600) for headings and figures. Lato (400 and 700) for body text, nav, and buttons. The wordmark alone is Source Serif 4 at 500, with “books” in italic. All three come from Google Fonts.
 
 | Element | Font | Size |
 | --- | --- | --- |
@@ -267,7 +269,7 @@ Poppins (500 and 600) for headings, the wordmark, and figures. Lato (400 and 700
 | Section headings | Poppins 500, −0.03em | `clamp(1.75rem, 1.1rem + 1.8vw, 2.75rem)` |
 | Form heading | Poppins 500 | `clamp(2.25rem, 1.4rem + 2.6vw, 3.25rem)` |
 | Card names | Poppins 500 | 1.1875rem |
-| Wordmark | Poppins 600 | 1.0625rem |
+| Wordmark | Source Serif 4, 500, “books” italic | 2rem, about twice the menu text |
 | Body | Lato 400 | 1.0625rem, line height 1.6 |
 | Nav, menu items, buttons, card lines | Lato | 0.9375rem |
 | Labels, notes, footer | Lato | 0.875rem |
@@ -277,7 +279,7 @@ Poppins (500 and 600) for headings, the wordmark, and figures. Lato (400 and 700
 
 - Content width is `min(75rem, 100% − 3rem)`, or 2.5rem of gutter below 640px.
 - The nav is a 64px sticky bar with a full-width hairline under it. It holds the wordmark and the three menus on the left, and Login and Close my books on the right. Each menu box fills the bar’s height, and its panel hangs from the bar’s bottom edge with no gap. Below 880px the bar stops being sticky, and the nav opens as a full-width list.
-- The hero has 6rem above the headline and 4rem between the headline and the frame. The video sits in a 12px-radius frame with a lavender border and a soft purple-tinted shadow. Below 640px the frame crops the video to 4:3 from the center top (`object-fit: cover`), so the product reads at about twice the size. The poster gets the same crop.
+- The hero has 6rem above the headline and 4rem between the headline and the frame. The video sits in a 12px-radius white frame with a soft shadow. The frame crops away the recording’s lavender margin, so only the product shows. The three highlight cards (March, Last sync, March P&L ready) are drawn on top of that picture, inset from the frame. Below 640px those cards sit under the picture instead of covering it.
 - The six cards are one grid joined by 1px rules, like a single sheet. Each card screen is a lavender band at the bottom of the card. Inside it, a white app window is cropped at the right and bottom edges like a screenshot.
 - The closing section is a centered `--lavender-soft` panel. The footer sits under a hairline.
 - The form page is one centered 36rem column: the heading, the line, then the form in a bordered card.
@@ -408,7 +410,7 @@ Known issues:
 
 - The loop restarts mid-question. A better cut would begin and end on an empty ask field.
 - There is MP4 only. Rillet also ships WebM. A WebM source would be a small win.
-- On a phone, the 1418-wide picture was too small to read. Below 640px it is now cropped to 4:3 in CSS, which roughly doubles the text size and cuts off the edges of the Cash metric and the floating cards. A recorded phone-sized cut would still read better.
+- On a phone, the 1418-wide picture is still small. The homepage crops to the product and moves the highlight cards under it below 640px. A recorded phone-sized cut would still read better.
 
 ## Redesign brief
 
