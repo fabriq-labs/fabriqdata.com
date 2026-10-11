@@ -25,6 +25,8 @@ Work happens on the `close-site` branch. History on that branch, oldest first:
 - `b483d27` Add the how, firms, and Close my books pages.
 - `f2880d8` Drop the how and firms pages and keep menu items as names.
 
+The `close-theme` branch, cut from `5b731d5`, moves the site to the product app’s white and purple theme. See [Visual system](#visual-system).
+
 ## Files
 
 | File | Public | What it is |
@@ -222,46 +224,79 @@ Errors appear under the field: “Add this.” for an empty text field, “Choos
 ### Accessibility already in place
 
 - A skip link to `#main`.
-- A visible pine focus outline on every control.
+- A visible purple focus outline on every control.
 - Real labels on every field, `role="alert"` on error slots, and `aria-invalid` on fields with errors.
 - Menu state exposed through `aria-expanded`. Panels use the `hidden` attribute.
 - `prefers-reduced-motion` turns off smooth scrolling and the caret blink.
 
 A redesign should keep all of this.
 
-## Visual system today
+## Visual system
 
-### Marketing chrome
+The marketing page now uses the product app’s white and purple. The page and the product pictures share one purple family. Every color, radius, and font below comes from the product repo at `/Users/prasannaj/dev/fabriq-books/fabriq-ws-setup`, in `frontend-1` (`tailwind.config.ts`, `src/index.css`), except where the table says otherwise. Change them in both places together. The paper and pine theme, Newsreader, and Atkinson Hyperlegible are gone.
 
-| Token | Value | Use |
+### Tokens (`close.css` `:root`)
+
+| Token | Value | Source in the app | Use |
+| --- | --- | --- | --- |
+| `--bg` | `#ffffff` | `--background` | Page, nav, cards, panels |
+| `--ink` | `#020817` | `--foreground` | Text |
+| `--muted` | `#64748b` | `--muted-foreground` | Card lines, lede, notes, footer. 4.76:1 on white. Use it on white only. |
+| `--rule` | `#e2e8f0` | `--border` | Nav rule, card grid lines, panel borders |
+| `--field` | `#7c8799` | Not in the app | Form field borders, darkened to 3.6:1 so the fields are visible |
+| `--purple` | `#7028a0` | `primary` / `primary-600` | The Close my books button, links, focus ring, open menu labels. 8.4:1 against white either way round. |
+| `--purple-700` | `#591e80` | `primary-700` | Button and link hover, Approve text |
+| `--purple-900` | `#2b0c3f` | `primary-900` | Figures inside the product pictures |
+| `--purple-50` | `#f5ebf9` | `primary-50` | Approve pills in the card screens |
+| `--purple-100` | `#e8d4f2` | `primary-100` | Text selection |
+| `--lavender` | `#f5effb` | `--accent` | Hero frame and card screen backgrounds |
+| `--lavender-soft` | `#faf7fd` | `--sidebar-background` | The closing section. Keep `--muted` text off it (4.48:1). |
+| `--lavender-rule` | `#e6deed` | `--sidebar-border` | Hero frame, closing section, and card screen window borders |
+| `--brick` | `#8a3a32` | Not in the app | “Needs you,” “Needs a receipt,” and form errors |
+| `--green` | `#1f8a4c` | Not in the app | Connected-system dots |
+
+Radii follow the app’s `--radius: 0.5rem`: `--radius-sm` 4px for pills, `--radius-md` 6px for buttons and fields, `--radius-lg` 8px for menu panels and card screen windows, and `--radius-xl` 12px for the hero frame, the card grid, the closing section, and the form. Shadows are three soft steps (`--shadow-sm`, `--shadow-md`, `--shadow-lg`). There are no decorative gradients.
+
+### Type
+
+Poppins (500 and 600) for headings, the wordmark, and figures. Lato (400 and 700) for body text, nav, and buttons. Both are loaded from Google Fonts.
+
+| Element | Font | Size |
 | --- | --- | --- |
-| `--paper` | `#f4f6f5` | Page background |
-| `--sheet` | `#ffffff` | Cards and panels |
-| `--ink` | `#17211e` | Text |
-| `--muted` | `#3e5149` | Secondary text |
-| `--rule` | `#d5ddd8` | Borders and dividers |
-| `--pine` | `#1b4f38` | The Close my books button and focus ring |
-| `--pine-ink` | `#143c2b` | Button hover and links |
+| Hero headline | Poppins 500, −0.035em | `clamp(1.625rem, 0.6rem + 4.5vw, 4.25rem)`. Each of the three lines fits on a 390px phone. |
+| Section headings | Poppins 500, −0.03em | `clamp(1.75rem, 1.1rem + 1.8vw, 2.75rem)` |
+| Form heading | Poppins 500 | `clamp(2.25rem, 1.4rem + 2.6vw, 3.25rem)` |
+| Card names | Poppins 500 | 1.1875rem |
+| Wordmark | Poppins 600 | 1.0625rem |
+| Body | Lato 400 | 1.0625rem, line height 1.6 |
+| Nav, menu items, buttons, card lines | Lato | 0.9375rem |
+| Labels, notes, footer | Lato | 0.875rem |
+| Card screen text | Lato | 0.78rem, smaller and denser so it reads as inside the app |
 
-Type: Newsreader for headlines and the wordmark, Atkinson Hyperlegible for body text. Both come from Google Fonts. Content width is `min(72rem, 100% − 2.5rem)`. Buttons have a 2px radius. Cards and panels have an 8px radius and a 1px rule border.
+### Layout
 
-Breakpoints: 1100px, 960px (cards go to two columns), 880px (nav collapses), 760px, and 640px (cards go to one column).
+- Content width is `min(75rem, 100% − 3rem)`, or 2.5rem of gutter below 640px.
+- The nav is a 64px sticky bar with a full-width hairline under it. It holds the wordmark and the three menus on the left, and Login and Close my books on the right. Each menu box fills the bar’s height, and its panel hangs from the bar’s bottom edge with no gap. Below 880px the bar stops being sticky, and the nav opens as a full-width list.
+- The hero has 6rem above the headline and 4rem between the headline and the frame. The video sits in a 12px-radius frame with a lavender border and a soft purple-tinted shadow. Below 640px the frame crops the video to 4:3 from the center top (`object-fit: cover`), so the product reads at about twice the size. The poster gets the same crop.
+- The six cards are one grid joined by 1px rules, like a single sheet. Each card screen is a lavender band at the bottom of the card. Inside it, a white app window is cropped at the right and bottom edges like a screenshot.
+- The closing section is a centered `--lavender-soft` panel. The footer sits under a hairline.
+- The form page is one centered 36rem column: the heading, the line, then the form in a bordered card.
 
-The owner has asked for a more professional theme. These tokens are a starting point, not a requirement.
+Breakpoints: 1100px, 960px (cards go to two columns), 880px (nav collapses), 760px (tighter section spacing), and 640px (cards go to one column, and the hero crop starts).
 
 ### Product UI inside the picture and the card screens
 
-The hero video and the small screens in the cards show the product, so they use the product app’s look, not the marketing type:
+The hero video and the card screens show the product. They use the same purple family as the page, but they stay recognizably inside the app: smaller, denser UI type, and framed like screenshots, while the page around them stays calm and spacious.
 
-- Purple `#7028a0` for actions such as Approve
+- Purple for actions such as Approve
 - Lato for screen text, Poppins for figures in the hero frame
-- A lavender stage, `#f4eef8` in the hero and `#f3f0f6` behind the card screens
-- Brick `#8a3a32` for “Needs you” and “Needs a receipt”
-- Green `#1f8a4c` for a connected-system dot
+- A lavender stage: `#f4eef8` in the recorded hero, and `--lavender` behind the card screens
+- Brick for “Needs you” and “Needs a receipt”
+- Green for a connected-system dot
 
-These come from the product repo at `/Users/prasannaj/dev/fabriq-books/fabriq-ws-setup`, in `frontend-1` (`tailwind.config.ts`, `src/index.css`). Its primary color is `#7028a0`. The real product dashboard was deliberately not copied. The owner called it too messy. The pictures here are a cleaned-up period view.
+The real product dashboard was deliberately not copied. The owner called it too messy. The pictures here are a cleaned-up period view.
 
-Keep the product pictures visibly “product” and the page around them visibly “marketing.” Do not restyle the card screens into the marketing palette.
+The hero recording was not redone for this theme. It was already white and purple, so it was re-framed instead. The rules that `capture.html` uses to draw the product stage (`.product-stage`, `.app`, `.metrics`, and the rest) are kept as they were, at the bottom of `close.css`, so `tools/record-hero.mjs` still reproduces the same picture.
 
 ## The homepage shape
 
@@ -373,7 +408,7 @@ Known issues:
 
 - The loop restarts mid-question. A better cut would begin and end on an empty ask field.
 - There is MP4 only. Rillet also ships WebM. A WebM source would be a small win.
-- On a phone, the 1418-wide picture shrinks until the text is very small. A taller crop for small screens, or a still with less on it, would read better.
+- On a phone, the 1418-wide picture was too small to read. Below 640px it is now cropped to 4:3 in CSS, which roughly doubles the text size and cuts off the edges of the Cash metric and the floating cards. A recorded phone-sized cut would still read better.
 
 ## Redesign brief
 
